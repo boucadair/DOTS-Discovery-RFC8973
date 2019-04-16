@@ -84,32 +84,27 @@
       under a potential attack so that appropriate mitigation actions are
       undertaken.</t>
 
-      <t>This document specifies mechanisms to configure nodes with DOTS
-      servers.<!--model
-ZTP: kent
-
---></t>
+      <t>This document specifies mechanisms to configure DOTS clients with
+      DOTS servers.</t>
     </abstract>
   </front>
 
   <middle>
     <section title="Introduction">
-      <t>In many deployments, it may not be possible for a network to
-      determine the cause for a distributed Denial-of-Service (DoS) attack
-      <xref target="RFC4732"></xref>, but instead just realize that some
-      resources seem to be under attack. To fill that gap, the IETF is
-      specifying an architecture, called DDoS Open Threat Signaling (DOTS)
-      <xref target="I-D.ietf-dots-architecture"></xref>, in which a DOTS
-      client can inform a DOTS server that the network is under a potential
-      attack and that appropriate mitigation actions are required. Indeed,
-      because the lack of a common method to coordinate a real-time response
-      among involved actors and network domains inhibits the effectiveness of
-      DDoS attack mitigation, DOTS signal channel protocol <xref
-      target="I-D.ietf-dots-signal-channel"></xref> is meant to carry requests
-      for DDoS attack mitigation, thereby reducing the impact of an attack and
-      leading to more efficient defensive actions. <xref
-      target="I-D.ietf-dots-use-cases"></xref> identifies a set of scenarios
-      for DOTS.</t>
+      <t>DDoS Open Threat Signaling (DOTS) <xref
+      target="I-D.ietf-dots-architecture"></xref> specifies an architecture,
+      in which a DOTS client can inform a DOTS server that the network is
+      under a potential attack and that appropriate mitigation actions are
+      required. Indeed, because the lack of a common method to coordinate a
+      real-time response among involved actors and network domains inhibits
+      the effectiveness of DDoS attack mitigation, DOTS signal channel
+      protocol <xref target="I-D.ietf-dots-signal-channel"></xref> is meant to
+      carry requests for DDoS attack mitigation, thereby reducing the impact
+      of an attack and leading to more efficient defensive actions in various
+      deployment scenarios such as those discussed in <xref
+      target="I-D.ietf-dots-use-cases"></xref>. Moreover, DOTS clients can
+      instruct a DOTS server to install filtering rules by means of DOTS data
+      channel <xref target="I-D.ietf-dots-data-channel"></xref>.</t>
 
       <t>The basic high-level DOTS architecture is illustrated in <xref
       target="arch"></xref> (<xref
@@ -132,9 +127,7 @@ ZTP: kent
       DOTS client may be provided with a list of DOTS servers; each associated
       with one or more IP addresses. These addresses may or may not be of the
       same address family. The DOTS client establishes one or more DOTS
-      sessions by connecting to the provided DOTS server addresses. The logic
-      for connecting to one or multiple IP addresses is out of scope of this
-      document.</t>
+      sessions by connecting to the provided DOTS server addresses. </t>
 
       <t>This document specifies methods for DOTS clients to discover their
       DOTS server(s). The rationale for specifying multiple discovery
@@ -144,62 +137,32 @@ ZTP: kent
       DOTS clients is out of scope; the reader should refer to <xref
       target="I-D.ietf-dots-multihoming"></xref> for more details.</t>
 
-      <t>Likewise, happy eyeballs considerations for DOTS are out of scope.
-      The reader should refer to Section 4 of <xref
+      <t>Likewise, happy eyeballs considerations for DOTS signal channel
+      protocol are out of scope. The reader should refer to Section 4 of <xref
       target="I-D.ietf-dots-signal-channel"></xref>.</t>
 
-      <t>This document assumes that security credentials are provisioned using
-      a variety of means such as those discussed in <xref
-      target="Security"></xref>. DOTS clients uses those credentials for
-      authentication purposes following <xref
-      target="I-D.ietf-dots-signal-channel"></xref>.</t>
+      <t>This document assumes that security credentials to authenticate DOTS
+      server(s) are provisioned to a DOTS client using a variety of means such
+      as (but not limited to) those discussed in <xref
+      target="I-D.ietf-netconf-zerotouch"></xref> or <xref
+      target="I-D.ietf-anima-bootstrapping-keyinfra"></xref>. DOTS clients use
+      those credentials for authentication purposes following the rules
+      documented in <xref target="I-D.ietf-dots-signal-channel"></xref>.</t>
     </section>
 
-    <section title="Requirements Language">
+    <section title="Terminology">
       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
       "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
       "OPTIONAL" in this document are to be interpreted as described in BCP 14
       <xref target="RFC2119"></xref><xref target="RFC8174"></xref> when, and
       only when, they appear in all capitals, as shown here.</t>
-    </section>
 
-    <section title="Terminology">
-      <t>This document makes use of the following terms:<?rfc subcompact="yes" ?></t>
-
-      <t><list style="symbols">
-          <t>DDoS: A distributed Denial-of-Service attack, in which traffic
-          originating from multiple sources are directed at a target on a
-          network. DDoS attacks are intended to cause a negative impact on the
-          availability of servers, services, applications, and/or other
-          functionality of an attack target.</t>
-
-          <t>DHCP refers to both DHCPv4 <xref target="RFC2131"></xref> and
-          DHCPv6 <xref target="RFC8415"></xref>.</t>
-
-          <t>DHCP client denotes a node that initiates requests to obtain
-          configuration parameters from one or more DHCP servers.</t>
-
-          <t>DHCP server refers to a node that responds to requests from DHCP
-          clients.</t>
-
-          <t>DOTS client: A DOTS-aware software module responsible for
-          requesting attack response coordination with other DOTS-aware
-          elements.</t>
-
-          <t>DOTS server: A DOTS-aware software module handling and responding
-          to messages from DOTS clients. The DOTS server should enable
-          mitigation on behalf of the DOTS client, if requested, by
-          communicating the DOTS client's request to the mitigator and
-          returning selected mitigator feedback to the requesting DOTS client.
-          A DOTS server may also be a mitigator.</t>
-
-          <t>DOTS gateway: A DOTS-aware software module that is logically
-          equivalent to a DOTS client back-to-back with a DOTS server.</t>
-        </list><?rfc subcompact="no" ?></t>
-
-      <t>Furthermore, the reader should be familiar with other terms defined
-      in <xref target="I-D.ietf-dots-architecture"></xref> and <xref
+      <t>The reader should be familiar with the terms defined in <xref
+      target="I-D.ietf-dots-architecture"></xref> and <xref
       target="RFC3958"></xref>.</t>
+
+      <t>DHCP refers to both DHCPv4 <xref target="RFC2131"></xref> and DHCPv6
+      <xref target="RFC8415"></xref>.</t>
     </section>
 
     <section anchor="rationale" title="Why Multiple Discovery Mechanisms?">
@@ -235,8 +198,7 @@ ZTP: kent
           DOTS client to discover this preference.</t>
 
           <t>The upstream network provider is not the DDoS mitigation provider
-          for some of these use cases. The use of anycast is not appropriate
-          for this use case, in particular. It is safe to assume that for such
+          for some of these use cases. It is safe to assume that for such
           deployments, the DOTS server(s) domain name is provided during the
           service subscription (i.e., manual/local configuration).</t>
 
@@ -246,9 +208,8 @@ ZTP: kent
           standpoint.</t>
 
           <t>Some of the use cases may involve a DOTS gateway that is
-          responsible for forking requests received from DOTS clients to
-          upstream DOTS servers or for selecting the appropriate DOTS server.
-          </t>
+          responsible for selecting the appropriate DOTS server(s) to relay
+          requests received from DOTS clients.</t>
         </list></t>
 
       <t>Consequently, this document describes a unified discovery logic
@@ -256,7 +217,7 @@ ZTP: kent
       mechanisms:</t>
 
       <t><list style="symbols">
-          <t>Discovery using DHCP Options (<xref target="dhcp"></xref>).</t>
+          <t>Dynamic discovery using DHCP (<xref target="dhcp"></xref>). </t>
 
           <t>A resolution mechanism based on straightforward Naming Authority
           Pointer (S-NAPTR) resource records in the Domain Name System (DNS)
@@ -272,8 +233,8 @@ ZTP: kent
       server(s) information consistently. To accomplish this, operators will
       need a consistent set of ways in which DOTS clients can discover this
       information, and a consistent priority among these options. If some
-      devices prefer manual configuration over DNS discovery, while others
-      prefer DNS discovery over manual configuration, the result will be a
+      devices prefer manual configuration over dynamic discovery, while others
+      prefer dynamic discovery over manual configuration, the result will be a
       process of "whack-a-mole", where the operator must find devices that are
       using the wrong DOTS server(s), determine how to ensure the devices are
       configured properly, and then reconfigure the device through the
@@ -291,13 +252,13 @@ ZTP: kent
               DOTS server(s) by means of local or manual DOTS configuration
               (i.e., DOTS servers configured at the system level).
               Configuration discovered from a DOTS client application is
-              considered as local configuration. An implementation may give
-              the user an opportunity (e.g., by means of configuration file
-              options or menu items) to specify DOTS server(s) for each
-              address family. These MAY be specified either as IP addresses or
-              the DNS name of a DOTS server. When only DOTS server's IP
-              addresses are configured, a reference identifier must also be
-              configured for authentication purposes.</t>
+              considered as local configuration.<vspace blankLines="1" />An
+              implementation may give the user an opportunity (e.g., by means
+              of configuration file options or menu items) to specify DOTS
+              server(s) for each address family. These MAY be specified either
+              as IP addresses or the DNS name of a DOTS server. When only DOTS
+              server's IP addresses are configured, a reference identifier
+              must also be configured for authentication purposes.</t>
 
               <t>Automatic configuration (e.g., DHCP, an automation system):
               The DOTS client attempts to discover DOTS server(s) names and/or
@@ -361,6 +322,13 @@ ZTP: kent
       <t>Defining the option to include a list of IP addresses would avoid a
       dependency on an underlying name resolution, but that design requires to
       also supply a name for PKIX-based authentication purposes.</t>
+
+      <t>The design assumes that the same DOTS server is used for establishing
+      both signal and data channels. For more customized configurations (e.g.,
+      transport-specific configuration, distinct DOTS servers for the signal
+      and the data channels), an operator can supply only a DOTS reference
+      identifier that will be then passed to the procedure described in <xref
+      target="srvr"></xref>.</t>
 
       <section title="DHCPv6 DOTS Options">
         <section title="Format of DOTS Reference Identifier Option">
@@ -716,7 +684,9 @@ ZTP: kent
       <t>Section 4.1 of <xref target="RFC6763"></xref> specifies that a
       service instance name in DNS-SD has the following structure:</t>
 
-      <t>&lt;Instance&gt; . &lt;Service&gt; . &lt;Domain&gt;</t>
+      <t><figure align="center">
+          <artwork><![CDATA[<Instance> . <Service> . <Domain>]]></artwork>
+        </figure></t>
 
       <t>The &lt;Domain&gt; portion specifies the DNS sub-domain where the
       service instance is registered. It may be "local.", indicating the mDNS
@@ -731,39 +701,8 @@ ZTP: kent
       <t>DOTS-related security considerations are discussed in Section 4 of
       <xref target="I-D.ietf-dots-architecture"></xref> is to be considered.
       DOTS agents must authenticate each other using (D)TLS before a DOTS
-      session is considered valid.</t>
-
-      <t>If the DOTS client is explicitly configured with DOTS server(s) then
-      the DOTS client can also be explicitly configured with credentials to
-      authenticate the DOTS server.</t>
-
-      <t>The CPE device acting as a DOTS client may use Bootstrapping Remote
-      Secure Key Infrastructures (BRSKI) discussed in <xref
-      target="I-D.ietf-anima-bootstrapping-keyinfra"></xref> to automatically
-      bootstrap using the vendor installed X.509 certificate, in combination
-      with a domain registrar provided by the upstream transit provider and
-      vendor's authorizing service. The CPE device authenticates to the
-      upstream transit provider using the vendor installed X.509 certificate
-      and the upstream transit provider validates the vendor installed
-      certificate on the CPE device using the Manufacturer Authorized Signing
-      Authority (MASA) service. If authentication is successful then the CPE
-      device can request and get a voucher from the MASA service via the
-      domain registrar. The voucher is signed by the MASA service and includes
-      the upstream transit provider's trust anchor certificate. The CPE device
-      validates the signed voucher using the manufacturer installed trust
-      anchor associated with the vendor's selected MASA service and stores the
-      upstream transit provider's trust anchor certificate. The CPE device
-      then uses Enrollment over Secure Transport (EST) <xref
-      target="RFC7030"></xref> for certificate enrollment (Section 3.8 in
-      <xref target="I-D.ietf-anima-bootstrapping-keyinfra"></xref>). The DOTS
-      client on the CPE device can authenticate to the DOTS server using the
-      certificate provisioned by the EST server and the DOTS client can
-      validate the DOTS server certificate using the upstream transit
-      provider's trust anchor certificate it had received in the voucher.</t>
-
-      <t>Likewise, a CPE device my rely on the Secure Zero Touch Provisioning
-      (SZTP) discussed in <xref target="I-D.ietf-netconf-zerotouch"></xref>
-      when bootstrapping.</t>
+      session is considered valid according to the <xref
+      target="I-D.ietf-dots-signal-channel"></xref>.</t>
 
       <section title="DHCP">
         <t>The security considerations in <xref target="RFC2131"></xref> and
@@ -943,6 +882,8 @@ ZTP: kent
       <?rfc include='reference.RFC.4291'?>
 
       <?rfc include='reference.RFC.8174'?>
+
+      <?rfc include='reference.I-D.ietf-dots-signal-channel'?>
     </references>
 
     <references title="Informative References">
@@ -960,12 +901,10 @@ ZTP: kent
 
       <?rfc include='reference.RFC.3007'?>
 
-      <?rfc include='reference.RFC.7030'?>
-
       <?rfc include='reference.I-D.ietf-dots-use-cases'
 ?>
 
-      <?rfc include='reference.I-D.ietf-dots-signal-channel'?>
+      <?rfc include='reference.I-D.ietf-dots-data-channel'?>
 
       <?rfc include='reference.I-D.ietf-anima-bootstrapping-keyinfra'?>
 
