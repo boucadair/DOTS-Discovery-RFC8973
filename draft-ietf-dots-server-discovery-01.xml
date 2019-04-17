@@ -76,6 +76,24 @@
 
     <date />
 
+    <workgroup>DOTS</workgroup>
+
+    <keyword>Automation</keyword>
+
+    <keyword>Provisioning</keyword>
+
+    <keyword>Configuration</keyword>
+
+    <keyword>Location</keyword>
+
+    <keyword>Deployment</keyword>
+
+    <keyword>Multihoming</keyword>
+
+    <keyword>DDoS</keyword>
+
+    <keyword>Security</keyword>
+
     <abstract>
       <t>It may not be possible for a network to determine the cause for an
       attack, but instead just realize that some resources seem to be under
@@ -383,7 +401,9 @@
         <section title="Format of DOTS Address Option">
           <t>The DHCPv6 DOTS option can be used to configure a list of IPv6
           addresses of a DOTS server. The format of this option is shown in
-          <xref target="dhcpv6_option"></xref>.</t>
+          <xref target="dhcpv6_option"></xref>. As a reminder, this format
+          follows the guidelines for creating new DHCPv6 options (Section 5.1
+          of <xref target="RFC7227"></xref>).</t>
 
           <t><figure anchor="dhcpv6_option" title="DHCPv6 DOTS Address option">
               <artwork><![CDATA[    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -459,6 +479,10 @@
           address(es) included in OPTION_V6_DOTS_ADDRESS is used to reach the
           DOTS server. In addition, these addresses can be used as identifiers
           for authentication.</t>
+
+          <t>The DHCP client MUST silently discard multicast and host loopback
+          addresses <xref target="RFC6890"></xref> conveyed in
+          OPTION_V6_DOTS_ADDRESS.</t>
         </section>
       </section>
 
@@ -473,7 +497,7 @@
               <artwork><![CDATA[
           Code  Length   DOTS server name
          +-----+-----+-----+-----+-----+-----+-----+--
-         | TBA |  n  |  s1 |  s2 |  s3 |  s4 | s5  |  ...
+         |TBA3 |  n  |  s1 |  s2 |  s3 |  s4 | s5  |  ...
          +-----+-----+-----+-----+-----+-----+-----+--
 
    The values s1, s2, s3, etc. represent the domain name labels in the
@@ -507,7 +531,7 @@
           <t><figure anchor="dhcp_dots" title="DHCPv4 DOTS Address option">
               <artwork><![CDATA[    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |  Code         |     Length    |
+   |  Code=TBA4    |     Length    |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    | List-Length   |   List of     |
    +-+-+-+-+-+-+-+-+    DOTS       |
@@ -596,6 +620,9 @@
           address(es) included in OPTION_V4_DOTS_ADDRESS is used to reach the
           DOTS server. In addition, these addresses can be used as identifiers
           for authentication.</t>
+
+          <t>The DHCP client MUST silently discard multicast and host loopback
+          addresses conveyed in OPTION_V4_DOTS_ADDRESS.</t>
         </section>
       </section>
     </section>
@@ -883,13 +910,15 @@
 
       <?rfc include='reference.RFC.8174'?>
 
+      <?rfc include='reference.RFC.6890'?>
+
       <?rfc include='reference.I-D.ietf-dots-signal-channel'?>
     </references>
 
     <references title="Informative References">
-      <?rfc include='reference.RFC.4732'?>
-
       <?rfc include='reference.I-D.ietf-dots-architecture'?>
+
+      <?rfc include='reference.RFC.7227'?>
 
       <?rfc include='reference.I-D.ietf-netconf-zerotouch'?>
 

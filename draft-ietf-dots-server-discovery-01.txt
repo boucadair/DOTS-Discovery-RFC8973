@@ -2,13 +2,13 @@
 
 
 
-Network Working Group                                       M. Boucadair
+DOTS                                                        M. Boucadair
 Internet-Draft                                                    Orange
 Intended status: Standards Track                                T. Reddy
-Expires: October 18, 2019                                         McAfee
+Expires: October 19, 2019                                         McAfee
                                                                 P. Patil
                                                                    Cisco
-                                                          April 16, 2019
+                                                          April 17, 2019
 
 
    Distributed-Denial-of-Service Open Threat Signaling (DOTS) Server
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 18, 2019.
+   This Internet-Draft will expire on October 19, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 1]
+Boucadair, et al.       Expires October 19, 2019                [Page 1]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 2]
+Boucadair, et al.       Expires October 19, 2019                [Page 2]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -165,7 +165,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 3]
+Boucadair, et al.       Expires October 19, 2019                [Page 3]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -221,7 +221,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 4]
+Boucadair, et al.       Expires October 19, 2019                [Page 4]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -277,7 +277,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 5]
+Boucadair, et al.       Expires October 19, 2019                [Page 5]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -333,7 +333,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 6]
+Boucadair, et al.       Expires October 19, 2019                [Page 6]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -389,7 +389,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 7]
+Boucadair, et al.       Expires October 19, 2019                [Page 7]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -429,7 +429,8 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
    The DHCPv6 DOTS option can be used to configure a list of IPv6
    addresses of a DOTS server.  The format of this option is shown in
-   Figure 4.
+   Figure 4.  As a reminder, this format follows the guidelines for
+   creating new DHCPv6 options (Section 5.1 of [RFC7227]).
 
 
 
@@ -444,8 +445,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-
-Boucadair, et al.       Expires October 18, 2019                [Page 8]
+Boucadair, et al.       Expires October 19, 2019                [Page 8]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -501,7 +501,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019                [Page 9]
+Boucadair, et al.       Expires October 19, 2019                [Page 9]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -525,6 +525,9 @@ Internet-Draft            DOTS Server Discovery               April 2019
    DOTS server.  In addition, these addresses can be used as identifiers
    for authentication.
 
+   The DHCP client MUST silently discard multicast and host loopback
+   addresses [RFC6890] conveyed in OPTION_V6_DOTS_ADDRESS.
+
 5.2.  DHCPv4 DOTS Options
 
 5.2.1.  Format of DOTS Reference Identifier Option
@@ -534,7 +537,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
             Code  Length   DOTS server name
            +-----+-----+-----+-----+-----+-----+-----+--
-           | TBA |  n  |  s1 |  s2 |  s3 |  s4 | s5  |  ...
+           |TBA3 |  n  |  s1 |  s2 |  s3 |  s4 | s5  |  ...
            +-----+-----+-----+-----+-----+-----+-----+--
 
      The values s1, s2, s3, etc. represent the domain name labels in the
@@ -554,10 +557,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-
-
-
-Boucadair, et al.       Expires October 18, 2019               [Page 10]
+Boucadair, et al.       Expires October 19, 2019               [Page 10]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -570,7 +570,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-      |  Code         |     Length    |
+      |  Code=TBA4    |     Length    |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
       | List-Length   |   List of     |
       +-+-+-+-+-+-+-+-+    DOTS       |
@@ -613,7 +613,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 11]
+Boucadair, et al.       Expires October 19, 2019               [Page 11]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -663,13 +663,13 @@ Internet-Draft            DOTS Server Discovery               April 2019
    DOTS server.  In addition, these addresses can be used as identifiers
    for authentication.
 
+   The DHCP client MUST silently discard multicast and host loopback
+   addresses conveyed in OPTION_V4_DOTS_ADDRESS.
 
 
 
 
-
-
-Boucadair, et al.       Expires October 18, 2019               [Page 12]
+Boucadair, et al.       Expires October 19, 2019               [Page 12]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -725,7 +725,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 13]
+Boucadair, et al.       Expires October 19, 2019               [Page 13]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -781,7 +781,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 14]
+Boucadair, et al.       Expires October 19, 2019               [Page 14]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -837,7 +837,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 15]
+Boucadair, et al.       Expires October 19, 2019               [Page 15]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -893,7 +893,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 16]
+Boucadair, et al.       Expires October 19, 2019               [Page 16]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -949,7 +949,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 17]
+Boucadair, et al.       Expires October 19, 2019               [Page 17]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -994,18 +994,18 @@ Internet-Draft            DOTS Server Discovery               April 2019
               Discovery", RFC 6763, DOI 10.17487/RFC6763, February 2013,
               <https://www.rfc-editor.org/info/rfc6763>.
 
+   [RFC6890]  Cotton, M., Vegoda, L., Bonica, R., Ed., and B. Haberman,
+              "Special-Purpose IP Address Registries", BCP 153,
+              RFC 6890, DOI 10.17487/RFC6890, April 2013,
+              <https://www.rfc-editor.org/info/rfc6890>.
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
 
 
-
-
-
-
-
-Boucadair, et al.       Expires October 18, 2019               [Page 18]
+Boucadair, et al.       Expires October 19, 2019               [Page 18]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -1061,7 +1061,7 @@ Internet-Draft            DOTS Server Discovery               April 2019
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 19]
+Boucadair, et al.       Expires October 19, 2019               [Page 19]
 
 Internet-Draft            DOTS Server Discovery               April 2019
 
@@ -1075,17 +1075,17 @@ Internet-Draft            DOTS Server Discovery               April 2019
               RFC 4033, DOI 10.17487/RFC4033, March 2005,
               <https://www.rfc-editor.org/info/rfc4033>.
 
-   [RFC4732]  Handley, M., Ed., Rescorla, E., Ed., and IAB, "Internet
-              Denial-of-Service Considerations", RFC 4732,
-              DOI 10.17487/RFC4732, December 2006,
-              <https://www.rfc-editor.org/info/rfc4732>.
-
    [RFC6125]  Saint-Andre, P. and J. Hodges, "Representation and
               Verification of Domain-Based Application Service Identity
               within Internet Public Key Infrastructure Using X.509
               (PKIX) Certificates in the Context of Transport Layer
               Security (TLS)", RFC 6125, DOI 10.17487/RFC6125, March
               2011, <https://www.rfc-editor.org/info/rfc6125>.
+
+   [RFC7227]  Hankins, D., Mrugalski, T., Siodelski, M., Jiang, S., and
+              S. Krishnan, "Guidelines for Creating New DHCPv6 Options",
+              BCP 187, RFC 7227, DOI 10.17487/RFC7227, May 2014,
+              <https://www.rfc-editor.org/info/rfc7227>.
 
 Authors' Addresses
 
@@ -1117,4 +1117,4 @@ Authors' Addresses
 
 
 
-Boucadair, et al.       Expires October 18, 2019               [Page 20]
+Boucadair, et al.       Expires October 19, 2019               [Page 20]
