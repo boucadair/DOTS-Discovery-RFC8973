@@ -5,10 +5,8 @@
 DOTS                                                        M. Boucadair
 Internet-Draft                                                    Orange
 Intended status: Standards Track                                T. Reddy
-Expires: November 28, 2019                                        McAfee
-                                                                P. Patil
-                                                                   Cisco
-                                                            May 27, 2019
+Expires: November 29, 2019                                        McAfee
+                                                            May 28, 2019
 
 
    Distributed-Denial-of-Service Open Threat Signaling (DOTS) Server
@@ -25,8 +23,8 @@ Abstract
    undertaken.
 
    This document specifies mechanisms to configure DOTS clients with
-   DOTS servers.  The discovery procedure also covers the DOTS Call
-   Home.
+   DOTS servers.  The discovery procedure also covers the DOTS Signal
+   Channel Call Home.
 
 Status of This Memo
 
@@ -43,23 +41,23 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 28, 2019.
+   This Internet-Draft will expire on November 29, 2019.
 
 Copyright Notice
 
    Copyright (c) 2019 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
 
 
 
-Boucadair, et al.       Expires November 28, 2019               [Page 1]
+Boucadair & Reddy       Expires November 29, 2019               [Page 1]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
 
-   This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
    (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
@@ -98,10 +96,11 @@ Table of Contents
        9.3.3.  signal.udp Application Protocol Tag Registration  . .  18
        9.3.4.  signal.tcp Application Protocol Tag Registration  . .  18
        9.3.5.  data.tcp Application Protocol Tag Registration  . . .  18
-   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  18
-   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
-     11.1.  Normative References . . . . . . . . . . . . . . . . . .  19
-     11.2.  Informative References . . . . . . . . . . . . . . . . .  20
+   10. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  18
+   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  19
+   12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
+     12.1.  Normative References . . . . . . . . . . . . . . . . . .  19
+     12.2.  Informative References . . . . . . . . . . . . . . . . .  20
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  21
 
 
@@ -109,7 +108,8 @@ Table of Contents
 
 
 
-Boucadair, et al.       Expires November 28, 2019               [Page 2]
+
+Boucadair & Reddy       Expires November 29, 2019               [Page 2]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -157,7 +157,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
    mechanisms is discussed in Section 3.
 
    The discovery methods can also used by a DOTS server to locate a DOTS
-   client in the context of DOTS Call Home
+   client in the context of DOTS Signal Channel Call Home
    [I-D.ietf-dots-signal-call-home].
 
 
@@ -165,7 +165,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019               [Page 3]
+Boucadair & Reddy       Expires November 29, 2019               [Page 3]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -200,7 +200,8 @@ Internet-Draft            DOTS Server Discovery                 May 2019
    DHCP refers to both DHCPv4 [RFC2131] and DHCPv6 [RFC8415].
 
    "Peer DOTS agent" refers to the peer DOTS server (normal DOTS
-   operation) or to a peer DOTS client (for DOTS Call Home).
+   operation) or to a peer DOTS client (for DOTS Signal Channel Call
+   Home).
 
 3.  Why Multiple Discovery Mechanisms?
 
@@ -220,8 +221,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-
-Boucadair, et al.       Expires November 28, 2019               [Page 4]
+Boucadair & Reddy       Expires November 29, 2019               [Page 4]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -277,7 +277,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019               [Page 5]
+Boucadair & Reddy       Expires November 29, 2019               [Page 5]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -333,7 +333,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019               [Page 6]
+Boucadair & Reddy       Expires November 29, 2019               [Page 6]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -356,7 +356,8 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
    The above procedure MUST also be followed by a DOTS gateway.
    Likewise, this procedure MUST be followed by a DOTS server in the
-   context of DOTS Call Home [I-D.ietf-dots-signal-call-home].
+   context of DOTS Signal Channel Call Home
+   [I-D.ietf-dots-signal-call-home].
 
    The discovery method MUST be reiterated upon the following events:
 
@@ -388,8 +389,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-
-Boucadair, et al.       Expires November 28, 2019               [Page 7]
+Boucadair & Reddy       Expires November 29, 2019               [Page 7]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -406,8 +406,8 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 5.1.1.  Format of DOTS Reference Identifier Option
 
    The DHCPv6 DOTS option is used to configure a name of the DOTS server
-   (or the name of the DOTS client for DOTS Call Home).  The format of
-   this option is shown in Figure 2.
+   (or the name of the DOTS client for DOTS Signal Channel Call Home).
+   The format of this option is shown in Figure 2.
 
        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -445,7 +445,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019               [Page 8]
+Boucadair & Reddy       Expires November 29, 2019               [Page 8]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -453,10 +453,10 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 5.1.2.  Format of DOTS Address Option
 
    The DHCPv6 DOTS option can be used to configure a list of IPv6
-   addresses of a DOTS server (or a DOTS client for DOTS Call Home).
-   The format of this option is shown in Figure 4.  As a reminder, this
-   format follows the guidelines for creating new DHCPv6 options
-   (Section 5.1 of [RFC7227]).
+   addresses of a DOTS server (or a DOTS client for DOTS Signal Channel
+   Call Home).  The format of this option is shown in Figure 4.  As a
+   reminder, this format follows the guidelines for creating new DHCPv6
+   options (Section 5.1 of [RFC7227]).
 
        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -484,8 +484,8 @@ Internet-Draft            DOTS Server Discovery                 May 2019
    o  Option-length: Length of the 'DOTS ipv6-address(es)' field in
       octets.  MUST be a multiple of 16.
    o  DOTS ipv6-address: Includes one or more IPv6 addresses [RFC4291]
-      of the peer DOTS agent to be used by the DOTS client for
-      establishing a DOTS session.
+      of the peer DOTS agent to be used by a DOTS agent for establishing
+      a DOTS session.
 
       Note, IPv4-mapped IPv6 addresses (Section 2.5.5.2 of [RFC4291])
       are allowed to be included in this option.
@@ -501,7 +501,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019               [Page 9]
+Boucadair & Reddy       Expires November 29, 2019               [Page 9]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -557,7 +557,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 10]
+Boucadair & Reddy       Expires November 29, 2019              [Page 10]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -613,7 +613,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 11]
+Boucadair & Reddy       Expires November 29, 2019              [Page 11]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -624,8 +624,8 @@ Internet-Draft            DOTS Server Discovery                 May 2019
    o  List-Length: Length of the "List of DOTS IPv4 Addresses" field in
       octets; MUST be a multiple of 4.
    o  List of DOTS IPv4 Addresses: Contains one or more IPv4 addresses
-      of the peer DOTS agent to be used by the DOTS client.  The format
-      of this field is shown in Figure 7.
+      of the peer DOTS agent to be used by a DOTS agent.  The format of
+      this field is shown in Figure 7.
    o  OPTION_V4_DOTS_ADDRESS can include multiple lists of DOTS IPv4
       addresses; each list is treated separately as it corresponds to a
       given peer DOTS agent.
@@ -669,7 +669,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 12]
+Boucadair & Reddy       Expires November 29, 2019              [Page 12]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -725,7 +725,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 13]
+Boucadair & Reddy       Expires November 29, 2019              [Page 13]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -781,7 +781,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 14]
+Boucadair & Reddy       Expires November 29, 2019              [Page 14]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -837,7 +837,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 15]
+Boucadair & Reddy       Expires November 29, 2019              [Page 15]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -893,7 +893,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 16]
+Boucadair & Reddy       Expires November 29, 2019              [Page 16]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -949,7 +949,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 17]
+Boucadair & Reddy       Expires November 29, 2019              [Page 17]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -994,7 +994,23 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
    o  Contact Information: <one of the authors>
 
-10.  Acknowledgements
+10.  Contributors
+
+      Prashanth Patil
+      Cisco Systems, Inc.
+
+      Email: praspati@cisco.com
+
+
+
+
+
+Boucadair & Reddy       Expires November 29, 2019              [Page 18]
+
+Internet-Draft            DOTS Server Discovery                 May 2019
+
+
+11.  Acknowledgements
 
    Thanks to Brian Carpenter for the review of the BRSKI text.
 
@@ -1003,18 +1019,11 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
    Thanks for Dan Wing and Pei Wei for the review and comments.
 
-
-
-Boucadair, et al.       Expires November 28, 2019              [Page 18]
-
-Internet-Draft            DOTS Server Discovery                 May 2019
-
-
    Thanks to Bernie Volz for the review of the DHCP section.
 
-11.  References
+12.  References
 
-11.1.  Normative References
+12.1.  Normative References
 
    [I-D.ietf-dots-signal-channel]
               K, R., Boucadair, M., Patil, P., Mortensen, A., and N.
@@ -1049,6 +1058,14 @@ Internet-Draft            DOTS Server Discovery                 May 2019
               Architecture", RFC 4291, DOI 10.17487/RFC4291, February
               2006, <https://www.rfc-editor.org/info/rfc4291>.
 
+
+
+
+Boucadair & Reddy       Expires November 29, 2019              [Page 19]
+
+Internet-Draft            DOTS Server Discovery                 May 2019
+
+
    [RFC6763]  Cheshire, S. and M. Krochmal, "DNS-Based Service
               Discovery", RFC 6763, DOI 10.17487/RFC6763, February 2013,
               <https://www.rfc-editor.org/info/rfc6763>.
@@ -1057,14 +1074,6 @@ Internet-Draft            DOTS Server Discovery                 May 2019
               "Special-Purpose IP Address Registries", BCP 153,
               RFC 6890, DOI 10.17487/RFC6890, April 2013,
               <https://www.rfc-editor.org/info/rfc6890>.
-
-
-
-
-Boucadair, et al.       Expires November 28, 2019              [Page 19]
-
-Internet-Draft            DOTS Server Discovery                 May 2019
-
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -1076,7 +1085,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
               RFC 8415, DOI 10.17487/RFC8415, November 2018,
               <https://www.rfc-editor.org/info/rfc8415>.
 
-11.2.  Informative References
+12.2.  Informative References
 
    [I-D.ietf-anima-bootstrapping-keyinfra]
               Pritikin, M., Richardson, M., Behringer, M., Bjarnason,
@@ -1102,6 +1111,17 @@ Internet-Draft            DOTS Server Discovery                 May 2019
               Threat Signaling (DOTS)", draft-ietf-dots-multihoming-01
               (work in progress), January 2019.
 
+
+
+
+
+
+
+Boucadair & Reddy       Expires November 29, 2019              [Page 20]
+
+Internet-Draft            DOTS Server Discovery                 May 2019
+
+
    [I-D.ietf-dots-signal-call-home]
               K, R., Boucadair, M., and J. Shallow, "Distributed Denial-
               of-Service Open Threat Signaling (DOTS) Signal Channel
@@ -1113,14 +1133,6 @@ Internet-Draft            DOTS Server Discovery                 May 2019
               Teague, N., Xia, L., and K. Nishizuka, "Use cases for DDoS
               Open Threat Signaling", draft-ietf-dots-use-cases-17 (work
               in progress), January 2019.
-
-
-
-
-Boucadair, et al.       Expires November 28, 2019              [Page 20]
-
-Internet-Draft            DOTS Server Discovery                 May 2019
-
 
    [I-D.ietf-netconf-zerotouch]
               Watsen, K., Abrahamsson, M., and I. Farrer, "Secure Zero
@@ -1155,6 +1167,17 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 Authors' Addresses
 
+
+
+
+
+
+
+Boucadair & Reddy       Expires November 29, 2019              [Page 21]
+
+Internet-Draft            DOTS Server Discovery                 May 2019
+
+
    Mohamed Boucadair
    Orange
    Rennes  35000
@@ -1173,15 +1196,6 @@ Authors' Addresses
 
 
 
-Boucadair, et al.       Expires November 28, 2019              [Page 21]
-
-Internet-Draft            DOTS Server Discovery                 May 2019
-
-
-   Prashanth Patil
-   Cisco Systems, Inc.
-
-   Email: praspati@cisco.com
 
 
 
@@ -1215,18 +1229,4 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Boucadair, et al.       Expires November 28, 2019              [Page 22]
+Boucadair & Reddy       Expires November 29, 2019              [Page 22]

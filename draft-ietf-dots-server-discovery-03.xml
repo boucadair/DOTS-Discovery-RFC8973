@@ -56,24 +56,6 @@
       </address>
     </author>
 
-    <author fullname="Prashanth Patil" initials="P." surname="Patil">
-      <organization abbrev="Cisco">Cisco Systems, Inc.</organization>
-
-      <address>
-        <postal>
-          <street></street>
-
-          <street></street>
-
-          <city></city>
-
-          <country></country>
-        </postal>
-
-        <email>praspati@cisco.com</email>
-      </address>
-    </author>
-
     <date />
 
     <workgroup>DOTS</workgroup>
@@ -103,8 +85,8 @@
       undertaken.</t>
 
       <t>This document specifies mechanisms to configure DOTS clients with
-      DOTS servers. The discovery procedure also covers the DOTS Call Home.
-      </t>
+      DOTS servers. The discovery procedure also covers the DOTS Signal
+      Channel Call Home. </t>
     </abstract>
   </front>
 
@@ -153,7 +135,7 @@
       mechanisms is discussed in <xref target="rationale"></xref>.</t>
 
       <t>The discovery methods can also used by a DOTS server to locate a DOTS
-      client in the context of DOTS Call Home <xref
+      client in the context of DOTS Signal Channel Call Home <xref
       target="I-D.ietf-dots-signal-call-home"></xref>.</t>
 
       <t>Considerations for the selection of DOTS server(s) by multi-homed
@@ -188,7 +170,8 @@
       <xref target="RFC8415"></xref>.</t>
 
       <t>"Peer DOTS agent" refers to the peer DOTS server (normal DOTS
-      operation) or to a peer DOTS client (for DOTS Call Home).</t>
+      operation) or to a peer DOTS client (for DOTS Signal Channel Call
+      Home).</t>
     </section>
 
     <section anchor="rationale" title="Why Multiple Discovery Mechanisms?">
@@ -319,7 +302,7 @@
 
       <t>The above procedure MUST also be followed by a DOTS gateway.
       Likewise, this procedure MUST be followed by a DOTS server in the
-      context of DOTS Call Home <xref
+      context of DOTS Signal Channel Call Home <xref
       target="I-D.ietf-dots-signal-call-home"></xref>.</t>
 
       <t>The discovery method MUST be reiterated upon the following
@@ -362,8 +345,8 @@
       <section title="DHCPv6 DOTS Options">
         <section title="Format of DOTS Reference Identifier Option">
           <t>The DHCPv6 DOTS option is used to configure a name of the DOTS
-          server (or the name of the DOTS client for DOTS Call Home). The
-          format of this option is shown in <xref
+          server (or the name of the DOTS client for DOTS Signal Channel Call
+          Home). The format of this option is shown in <xref
           target="ri_option"></xref>.</t>
 
           <t><figure anchor="ri_option"
@@ -412,8 +395,8 @@
 
         <section title="Format of DOTS Address Option">
           <t>The DHCPv6 DOTS option can be used to configure a list of IPv6
-          addresses of a DOTS server (or a DOTS client for DOTS Call Home).
-          The format of this option is shown in <xref
+          addresses of a DOTS server (or a DOTS client for DOTS Signal Channel
+          Call Home). The format of this option is shown in <xref
           target="dhcpv6_option"></xref>. As a reminder, this format follows
           the guidelines for creating new DHCPv6 options (Section 5.1 of <xref
           target="RFC7227"></xref>).</t>
@@ -448,8 +431,8 @@
               octets. MUST be a multiple of 16.</t>
 
               <t>DOTS ipv6-address: Includes one or more IPv6 addresses <xref
-              target="RFC4291"></xref> of the peer DOTS agent to be used by
-              the DOTS client for establishing a DOTS session. <vspace
+              target="RFC4291"></xref> of the peer DOTS agent to be used by a
+              DOTS agent for establishing a DOTS session. <vspace
               blankLines="1" />Note, IPv4-mapped IPv6 addresses (Section
               2.5.5.2 of <xref target="RFC4291"></xref>) are allowed to be
               included in this option.</t>
@@ -578,8 +561,8 @@
               field in octets; MUST be a multiple of 4.</t>
 
               <t>List of DOTS IPv4 Addresses: Contains one or more IPv4
-              addresses of the peer DOTS agent to be used by the DOTS client.
-              The format of this field is shown in <xref
+              addresses of the peer DOTS agent to be used by a DOTS agent. The
+              format of this field is shown in <xref
               target="list"></xref>.</t>
 
               <t>OPTION_V4_DOTS_ADDRESS can include multiple lists of DOTS
@@ -939,6 +922,15 @@ TBD2    OPTION_V6_DOTS_ADDRESS   Yes           No]]></artwork>
             </list></t>
         </section>
       </section>
+    </section>
+
+    <section title="Contributors">
+      <t><figure>
+          <artwork><![CDATA[   Prashanth Patil
+   Cisco Systems, Inc.
+
+   Email: praspati@cisco.com]]></artwork>
+        </figure></t>
     </section>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
