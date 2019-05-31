@@ -5,8 +5,8 @@
 DOTS                                                        M. Boucadair
 Internet-Draft                                                    Orange
 Intended status: Standards Track                                T. Reddy
-Expires: November 29, 2019                                        McAfee
-                                                            May 28, 2019
+Expires: December 2, 2019                                         McAfee
+                                                            May 31, 2019
 
 
    Distributed-Denial-of-Service Open Threat Signaling (DOTS) Server
@@ -41,7 +41,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 29, 2019.
+   This Internet-Draft will expire on December 2, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 1]
+Boucadair & Reddy       Expires December 2, 2019                [Page 1]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 2]
+Boucadair & Reddy       Expires December 2, 2019                [Page 2]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -165,7 +165,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 3]
+Boucadair & Reddy       Expires December 2, 2019                [Page 3]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -221,7 +221,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 4]
+Boucadair & Reddy       Expires December 2, 2019                [Page 4]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -277,7 +277,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 5]
+Boucadair & Reddy       Expires December 2, 2019                [Page 5]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -333,7 +333,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 6]
+Boucadair & Reddy       Expires December 2, 2019                [Page 6]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -389,7 +389,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 7]
+Boucadair & Reddy       Expires December 2, 2019                [Page 7]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -445,7 +445,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 8]
+Boucadair & Reddy       Expires December 2, 2019                [Page 8]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -501,7 +501,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019               [Page 9]
+Boucadair & Reddy       Expires December 2, 2019                [Page 9]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -557,7 +557,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 10]
+Boucadair & Reddy       Expires December 2, 2019               [Page 10]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -613,7 +613,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 11]
+Boucadair & Reddy       Expires December 2, 2019               [Page 11]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -669,7 +669,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 12]
+Boucadair & Reddy       Expires December 2, 2019               [Page 12]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -725,7 +725,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 13]
+Boucadair & Reddy       Expires December 2, 2019               [Page 13]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -781,7 +781,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 14]
+Boucadair & Reddy       Expires December 2, 2019               [Page 14]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -816,7 +816,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
                    | 2     | TCP      | 2001:db8::2 | 6001 | Signal |
                    +-------+----------+-------------+------+--------+
 
-                Figure 9: Sample Example for DOTS Call Home
+        Figure 9: Sample Example for DOTS Signal Channel Call Home
 
    If no DOTS-specific S-NAPTR records can be retrieved, the discovery
    procedure fails for this domain name (and the corresponding interface
@@ -837,7 +837,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 15]
+Boucadair & Reddy       Expires December 2, 2019               [Page 15]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -893,7 +893,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 16]
+Boucadair & Reddy       Expires December 2, 2019               [Page 16]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -949,7 +949,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 17]
+Boucadair & Reddy       Expires December 2, 2019               [Page 17]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 18]
+Boucadair & Reddy       Expires December 2, 2019               [Page 18]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -1061,7 +1061,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 19]
+Boucadair & Reddy       Expires December 2, 2019               [Page 19]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -1097,7 +1097,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
               Mortensen, A., K, R., Andreasen, F., Teague, N., and R.
               Compton, "Distributed-Denial-of-Service Open Threat
               Signaling (DOTS) Architecture", draft-ietf-dots-
-              architecture-13 (work in progress), April 2019.
+              architecture-14 (work in progress), May 2019.
 
    [I-D.ietf-dots-data-channel]
               Boucadair, M. and R. K, "Distributed Denial-of-Service
@@ -1117,7 +1117,7 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 20]
+Boucadair & Reddy       Expires December 2, 2019               [Page 20]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -1173,7 +1173,7 @@ Authors' Addresses
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 21]
+Boucadair & Reddy       Expires December 2, 2019               [Page 21]
 
 Internet-Draft            DOTS Server Discovery                 May 2019
 
@@ -1229,4 +1229,4 @@ Internet-Draft            DOTS Server Discovery                 May 2019
 
 
 
-Boucadair & Reddy       Expires November 29, 2019              [Page 22]
+Boucadair & Reddy       Expires December 2, 2019               [Page 22]

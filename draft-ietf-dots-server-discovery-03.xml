@@ -697,7 +697,8 @@
       <t>An example is provided in <xref target="callhome"></xref> for the
       Call Home case.</t>
 
-      <t><figure anchor="callhome" title="Sample Example for DOTS Call Home">
+      <t><figure anchor="callhome"
+          title="Sample Example for DOTS Signal Channel Call Home">
           <artwork><![CDATA[   In the example below, for domain 'example.net', the resolution
    algorithm will result in IP address(es), port, tag and protocol 
    tuples as follows:
