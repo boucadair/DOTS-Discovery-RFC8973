@@ -760,9 +760,9 @@
       examples shown in Figures <xref format="counter" target="ssrv"></xref>
       and <xref format="counter" target="callhome"></xref> for illustration
       purposes. If default port numbers are used in a deployment, the
-      discovery procedure will return 4646 (DOTS signal channel), 443 (DOTS
-      data channel), and 4647 (DOTS signal channel call home) as DOTS service
-      port numbers. </t>
+      discovery procedure will return TBD1 (DOTS signal channel), 443 (DOTS
+      data channel), and TBD2 (DOTS signal channel call home) as DOTS service
+      port numbers.</t>
 
       <t>If no DOTS-specific S-NAPTR records can be retrieved, the discovery
       procedure fails for this domain name (and the corresponding interface

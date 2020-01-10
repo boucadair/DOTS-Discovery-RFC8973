@@ -842,8 +842,8 @@ Boucadair & Reddy         Expires July 13, 2020                [Page 15]
 Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
 
 
-   procedure will return 4646 (DOTS signal channel), 443 (DOTS data
-   channel), and 4647 (DOTS signal channel call home) as DOTS service
+   procedure will return TBD1 (DOTS signal channel), 443 (DOTS data
+   channel), and TBD2 (DOTS signal channel call home) as DOTS service
    port numbers.
 
    If no DOTS-specific S-NAPTR records can be retrieved, the discovery
