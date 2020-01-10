@@ -386,7 +386,7 @@
           2001:db8:122:300::1 and 2001:db8:122:300::2 to a requesting DHCP
           client. That list is passed to the DOTS client (or Call Home DOTS
           server) which will try to establish connections to the addresses of
-          that list and destination port number 4646 (or 4647). As a result,
+          that list and destination port number TBD1 (or TBD2). As a result,
           the DOTS client (or Call Home DOTS server) will select
           2001:db8:122:300::1 (or 2001:db8:122:300::2) as a DOTS server (or
           Call Home DOTS client).</t>
