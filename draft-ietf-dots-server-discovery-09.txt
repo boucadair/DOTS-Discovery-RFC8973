@@ -875,8 +875,8 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
    "_dots-signal._udp" or "_dots-signal._tcp" or "_dots-data._tcp" or
    "_dots-call-home._udp" or "_dots-call-home._tcp".
 
-   This document does not define any keys; the TXT record is thus empty
-   (Section 6 [RFC6763]).
+   This document does not define any keys; the TXT record of a DNS-SD
+   service is thus empty (Section 6 of [RFC6763]).
 
    Figure 10 depicts an excerpt of the DNS zone configuration file
    listing record examples to discover two DOTS signal channel servers.

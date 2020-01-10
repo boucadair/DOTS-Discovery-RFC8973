@@ -795,8 +795,9 @@
       "_dots-signal._udp" or "_dots-signal._tcp" or "_dots-data._tcp" or
       "_dots-call-home._udp" or "_dots-call-home._tcp".</t>
 
-      <t>This document does not define any keys; the TXT record is thus empty
-      (Section 6 <xref target="RFC6763"></xref>). </t>
+      <t>This document does not define any keys; the TXT record of a DNS-SD
+      service is thus empty (Section 6 of <xref target="RFC6763"></xref>).
+      </t>
 
       <t><xref target="sdex"></xref> depicts an excerpt of the DNS zone
       configuration file listing record examples to discover two DOTS signal
