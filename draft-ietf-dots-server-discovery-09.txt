@@ -83,27 +83,27 @@ Table of Contents
        5.2.3.  DHCPv4 Client Behavior  . . . . . . . . . . . . . . .  13
    6.  Discovery using Service Resolution  . . . . . . . . . . . . .  13
    7.  DNS Service Discovery . . . . . . . . . . . . . . . . . . . .  16
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
-     8.1.  DHCP  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
+   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
+     8.1.  DHCP  . . . . . . . . . . . . . . . . . . . . . . . . . .  17
      8.2.  Service Resolution  . . . . . . . . . . . . . . . . . . .  17
      8.3.  DNS Service Discovery . . . . . . . . . . . . . . . . . .  17
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
      9.1.  The Service Name and Transport Protocol Port Number
-           Registry  . . . . . . . . . . . . . . . . . . . . . . . .  17
-     9.2.  DHCPv6 Options  . . . . . . . . . . . . . . . . . . . . .  18
-     9.3.  DHCPv4 Options  . . . . . . . . . . . . . . . . . . . . .  18
+           Registry  . . . . . . . . . . . . . . . . . . . . . . . .  18
+     9.2.  DHCPv6 Options  . . . . . . . . . . . . . . . . . . . . .  19
+     9.3.  DHCPv4 Options  . . . . . . . . . . . . . . . . . . . . .  19
      9.4.  Application Service & Application Protocol Tags . . . . .  19
        9.4.1.  DOTS Application Service Tag Registration . . . . . .  19
-       9.4.2.  DOTS Call Home Application Service Tag Registration .  19
+       9.4.2.  DOTS Call Home Application Service Tag Registration .  20
        9.4.3.  signal.udp Application Protocol Tag Registration  . .  20
        9.4.4.  signal.tcp Application Protocol Tag Registration  . .  20
        9.4.5.  data.tcp Application Protocol Tag Registration  . . .  20
-   10. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  20
-   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  20
+   10. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  21
+   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  21
    12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  21
      12.1.  Normative References . . . . . . . . . . . . . . . . . .  21
      12.2.  Informative References . . . . . . . . . . . . . . . . .  22
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
 
 
 
@@ -875,17 +875,17 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
    "_dots-signal._udp" or "_dots-signal._tcp" or "_dots-data._tcp" or
    "_dots-call-home._udp" or "_dots-call-home._tcp".
 
-8.  Security Considerations
+   This document does not define any keys; the TXT record is thus empty
+   (Section 6 [RFC6763]).
 
-   DOTS-related security considerations are discussed in Section 4 of
-   [I-D.ietf-dots-architecture].  As a reminder, DOTS agents must
-   authenticate each other using (D)TLS before a DOTS session is
-   considered valid according to the [I-D.ietf-dots-signal-channel].
+   Figure 10 depicts a sample example of records to discover two DOTS
+   signal channel servers.  In this example, only UDP is supported as
+   transport for the establishment of the DOTS signal channel.
 
-8.1.  DHCP
 
-   The security considerations in [RFC2131] and [RFC8415] are to be
-   considered.
+
+
+
 
 
 
@@ -897,6 +897,28 @@ Boucadair & Reddy         Expires July 13, 2020                [Page 16]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
 
+
+   _dots-signal._udp.example.net. PTR  a._dots-signal._udp.example.net.
+   _dots-signal._udp.example.net. PTR  b._dots-signal._udp.example.net.
+   a._dots-signal._udp.example.net. SRV 0 0 4646 a.example.net.
+   b._dots-signal._udp.example.net. SRV 0 0 4646 b.example.net.
+   a._dots-signal._udp.example.net. TXT ""
+   b._dots-signal._udp.example.net. TXT ""
+
+      Figure 10: An Example of DNS-SD Records for the UDP DOTS Signal
+           Channel involving Two Servers with the Same Priority.
+
+8.  Security Considerations
+
+   DOTS-related security considerations are discussed in Section 4 of
+   [I-D.ietf-dots-architecture].  As a reminder, DOTS agents must
+   authenticate each other using (D)TLS before a DOTS session is
+   considered valid according to the [I-D.ietf-dots-signal-channel].
+
+8.1.  DHCP
+
+   The security considerations in [RFC2131] and [RFC8415] are to be
+   considered.
 
 8.2.  Service Resolution
 
@@ -920,6 +942,18 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
 
 9.  IANA Considerations
 
+
+
+
+
+
+
+
+Boucadair & Reddy         Expires July 13, 2020                [Page 17]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
+
+
 9.1.  The Service Name and Transport Protocol Port Number Registry
 
    IANA is requested to allocate the following service name from the
@@ -940,19 +974,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
    IANA is requested to update the following entries from the registry
    available at: https://www.iana.org/assignments/service-names-port-
    numbers/service-names-port-numbers.xhtml.
-
-
-
-
-
-
-
-
-
-Boucadair & Reddy         Expires July 13, 2020                [Page 17]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
-
 
      Service Name:            dots-signal
      Port Number:             TBD1
@@ -980,6 +1001,15 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [I-D.ietf-dots-call-home][ThisDocument]
 
+
+
+
+
+Boucadair & Reddy         Expires July 13, 2020                [Page 18]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
+
+
       Note to the RFC Editor: Please replace TBD1 and TBD2 with the port
       numbers to be allocated by IANA as requested in [I-D.ietf-dots-
       signal-channel] and [I-D.ietf-dots-call-home].
@@ -999,16 +1029,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
    IANA is requested to assign the following new DHCPv4 Option Codes in
    the registry maintained in: https://www.iana.org/assignments/bootp-
    dhcp-parameters/bootp-dhcp-parameters.xhtml#options.
-
-
-
-
-
-
-Boucadair & Reddy         Expires July 13, 2020                [Page 18]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
-
 
                      Name Tag  Data       Meaning         Reference
                                Length
@@ -1038,6 +1058,14 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
 
    o  Security Considerations: See Section 8
 
+
+
+
+Boucadair & Reddy         Expires July 13, 2020                [Page 19]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
+
+
    o  Interoperability considerations: None
 
    o  Relevant publications: This document
@@ -1053,18 +1081,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
    o  Interoperability considerations: None
 
    o  Relevant publications: This document
-
-
-
-
-
-
-
-
-Boucadair & Reddy         Expires July 13, 2020                [Page 19]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
-
 
 9.4.3.  signal.udp Application Protocol Tag Registration
 
@@ -1098,6 +1114,14 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
 
    o  Security Considerations: See Section 8
 
+
+
+
+Boucadair & Reddy         Expires July 13, 2020                [Page 20]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
+
+
    o  Interoperability considerations: None
 
    o  Relevant publications: This document
@@ -1112,15 +1136,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
 11.  Acknowledgements
 
    Thanks to Brian Carpenter for the review of the BRSKI text.
-
-
-
-
-
-Boucadair & Reddy         Expires July 13, 2020                [Page 20]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
-
 
    Many thanks to Russ White for the review, comments, and text
    contribution.
@@ -1152,6 +1167,17 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
               DOI 10.17487/RFC3396, November 2002,
               <https://www.rfc-editor.org/info/rfc3396>.
 
+
+
+
+
+
+
+Boucadair & Reddy         Expires July 13, 2020                [Page 21]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
+
+
    [RFC3958]  Daigle, L. and A. Newton, "Domain-Based Application
               Service Location Using SRV RRs and the Dynamic Delegation
               Discovery Service (DDDS)", RFC 3958, DOI 10.17487/RFC3958,
@@ -1169,14 +1195,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
               "Special-Purpose IP Address Registries", BCP 153,
               RFC 6890, DOI 10.17487/RFC6890, April 2013,
               <https://www.rfc-editor.org/info/rfc6890>.
-
-
-
-
-Boucadair & Reddy         Expires July 13, 2020                [Page 21]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
-
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -1208,6 +1226,14 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
               Specification", draft-ietf-dots-data-channel-31 (work in
               progress), July 2019.
 
+
+
+
+Boucadair & Reddy         Expires July 13, 2020                [Page 22]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
+
+
    [I-D.ietf-dots-multihoming]
               Boucadair, M., Reddy.K, T., and W. Pan, "Multi-homing
               Deployment Considerations for Distributed-Denial-of-
@@ -1226,13 +1252,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
               Signaling (DOTS) Signal Channel Specification", draft-
               ietf-dots-signal-channel-41 (work in progress), January
               2020.
-
-
-
-Boucadair & Reddy         Expires July 13, 2020                [Page 22]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
-
 
    [I-D.ietf-dots-use-cases]
               Dobbins, R., Migault, D., Moskowitz, R., Teague, N., Xia,
@@ -1261,6 +1280,16 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
               Security (TLS)", RFC 6125, DOI 10.17487/RFC6125, March
               2011, <https://www.rfc-editor.org/info/rfc6125>.
 
+
+
+
+
+
+Boucadair & Reddy         Expires July 13, 2020                [Page 23]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
+
+
    [RFC7227]  Hankins, D., Mrugalski, T., Siodelski, M., Jiang, S., and
               S. Krishnan, "Guidelines for Creating New DHCPv6 Options",
               BCP 187, RFC 7227, DOI 10.17487/RFC7227, May 2014,
@@ -1281,15 +1310,6 @@ Authors' Addresses
    Email: mohamed.boucadair@orange.com
 
 
-
-
-
-
-Boucadair & Reddy         Expires July 13, 2020                [Page 23]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
-
-
    Tirumaleswar Reddy
    McAfee, Inc.
    Embassy Golf Link Business Park
@@ -1297,26 +1317,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
    India
 
    Email: TirumaleswarReddy_Konda@McAfee.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

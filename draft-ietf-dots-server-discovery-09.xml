@@ -794,6 +794,25 @@
       <t>The &lt;Service&gt; portion of the DOTS service instance name MUST be
       "_dots-signal._udp" or "_dots-signal._tcp" or "_dots-data._tcp" or
       "_dots-call-home._udp" or "_dots-call-home._tcp".</t>
+
+      <t>This document does not define any keys; the TXT record is thus empty
+      (Section 6 <xref target="RFC6763"></xref>). </t>
+
+      <t><xref target="sdex"></xref> depicts a sample example of records to
+      discover two DOTS signal channel servers. In this example, only UDP is
+      supported as transport for the establishment of the DOTS signal
+      channel.</t>
+
+      <t><figure anchor="sdex"
+          title="An Example of DNS-SD Records for the UDP DOTS Signal Channel involving Two Servers with the Same Priority.">
+          <artwork><![CDATA[_dots-signal._udp.example.net. PTR  a._dots-signal._udp.example.net.
+_dots-signal._udp.example.net. PTR  b._dots-signal._udp.example.net.
+a._dots-signal._udp.example.net. SRV 0 0 4646 a.example.net.
+b._dots-signal._udp.example.net. SRV 0 0 4646 b.example.net.
+a._dots-signal._udp.example.net. TXT ""
+b._dots-signal._udp.example.net. TXT ""
+]]></artwork>
+        </figure></t>
     </section>
 
     <section anchor="Security" title="Security Considerations">
