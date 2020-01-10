@@ -798,10 +798,10 @@
       <t>This document does not define any keys; the TXT record is thus empty
       (Section 6 <xref target="RFC6763"></xref>). </t>
 
-      <t><xref target="sdex"></xref> depicts a sample example of records to
-      discover two DOTS signal channel servers. In this example, only UDP is
-      supported as transport for the establishment of the DOTS signal
-      channel.</t>
+      <t><xref target="sdex"></xref> depicts an excerpt of the DNS zone
+      configuration file listing record examples to discover two DOTS signal
+      channel servers. In this example, only UDP is supported as transport for
+      the establishment of the DOTS signal channel.</t>
 
       <t><figure anchor="sdex"
           title="An Example of DNS-SD Records for the UDP DOTS Signal Channel involving Two Servers with the Same Priority.">

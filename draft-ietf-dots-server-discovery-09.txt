@@ -878,10 +878,10 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     January 2020
    This document does not define any keys; the TXT record is thus empty
    (Section 6 [RFC6763]).
 
-   Figure 10 depicts a sample example of records to discover two DOTS
-   signal channel servers.  In this example, only UDP is supported as
-   transport for the establishment of the DOTS signal channel.
-
+   Figure 10 depicts an excerpt of the DNS zone configuration file
+   listing record examples to discover two DOTS signal channel servers.
+   In this example, only UDP is supported as transport for the
+   establishment of the DOTS signal channel.
 
 
 
