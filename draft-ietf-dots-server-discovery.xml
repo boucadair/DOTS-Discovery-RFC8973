@@ -84,7 +84,7 @@
       Knowing the appropriate DOTS server for a given location can be useful
       to engage mitigation actions even in cases where the DOTS client cannot
       localize the attack, but only knows that some resources are under attack
-      and that help is needed. </t>
+      and that help is needed.</t>
     </abstract>
   </front>
 
@@ -160,12 +160,11 @@
       target="I-D.ietf-dots-multihoming"></xref> for more details.</t>
 
       <t>This document assumes that security credentials to authenticate DOTS
-      server(s) are provisioned to a DOTS client using one of the means such
-      as (but not limited to) those discussed in <xref
-      target="RFC8572"></xref> or <xref
-      target="I-D.ietf-anima-bootstrapping-keyinfra"></xref>. DOTS clients use
-      those credentials for authentication purposes following the rules
-      documented in <xref target="RFC8782"></xref>.</t>
+      server(s) are provisioned to a DOTS client using a mechanism such as
+      (but not limited to) those discussed in <xref target="RFC8572"></xref>
+      or <xref target="I-D.ietf-anima-bootstrapping-keyinfra"></xref>. DOTS
+      clients use those credentials for authentication purposes following the
+      rules documented in <xref target="RFC8782"></xref>.</t>
     </section>
 
     <section title="Terminology">
@@ -212,7 +211,7 @@
           <t>Some of the use cases may allow DOTS clients to have direct
           communications with upstream DOTS servers, that is, no DOTS gateway
           is involved. Leveraging existing protocol behaviors that do not
-          require specific feature on the node embedding the DOTS client may
+          require specific features on the node embedding the DOTS client may
           ease DOTS deployment. Typically, the use of Straightforward-Naming
           Authority Pointer (S-NAPTR) lookups <xref target="RFC3958"></xref>
           allows the DOTS server administrators to provision the preferred
@@ -322,8 +321,8 @@
 
       <t>The discovery method is reiterated by a DOTS agent upon the following
       events:<list style="symbols">
-          <t>Expiry of a a validity timer (e.g., DHCP lease, TTL) associated
-          with a discovered DOTS agent.</t>
+          <t>Expiry of a a validity timer (e.g., DHCP lease, DNS TTL)
+          associated with a discovered DOTS agent.</t>
 
           <t>Expiry of a peer DOTS agent's certificate currently in use.</t>
 
@@ -440,7 +439,7 @@
           <t>The DHCPv6 DOTS Address option can be used to configure a list of
           IPv6 addresses of a DOTS server (or a Call Home DOTS client). The
           format of this option is shown in <xref
-          target="dhcpv6_option"></xref>. </t>
+          target="dhcpv6_option"></xref>.</t>
 
           <t><figure anchor="dhcpv6_option" title="DHCPv6 DOTS Address Option">
               <artwork><![CDATA[    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -821,22 +820,31 @@ b._dots-signal._udp.example.net. TXT ""
 
       <t>The results of the discovery procedure are a function of the
       interface/address family. Contacting a discovered DOTS server via an
-      interface to which it is not bind may exacerbate the delay required to
+      interface to which it is not bound may exacerbate the delay required to
       establish a DOTS channel. Moreover, such behavior may reveal that a DOTS
       service is enabled by a DOTS client domain and exposes the identity of
       the DOTS service provider (that can be inferred from the name and the
-      destination IP address) to external networks. </t>
+      destination IP address) to external networks.</t>
 
       <section title="DHCP">
         <t>The security considerations in <xref target="RFC2131"></xref> and
         <xref target="RFC8415"></xref> are to be considered.</t>
+
+        <t>Relying on an underlying resolution library to resolve a supplied
+        reference identifier has similar security issues as those discussed in
+        <xref target="res"></xref> (e.g., an active attacker may modify DNS
+        messages used to resolve the supplied reference identifier and point
+        the client to an attacker server).</t>
+
+        <t>Supplying both an IP address and the reference identifier makes it
+        easier to use a mis-issued certificate.</t>
       </section>
 
-      <section title="Service Resolution">
+      <section anchor="res" title="Service Resolution">
         <t>The primary attack against the methods described in <xref
         target="srvr"></xref> is one that would lead to impersonation of a
         peer DOTS agent. An attacker could attempt to compromise the S-NAPTR
-        resolution. </t>
+        resolution.</t>
 
         <t>The DOTS client (or a Call Home DOTS server) constructs one
         reference identifier for the DOTS server (or a Call Home DOTS client)
@@ -850,7 +858,7 @@ b._dots-signal._udp.example.net. TXT ""
         uses cryptographic keys and digital signatures to provide
         authentication of DNS data. The information that is retrieved from the
         S-NAPTR lookup and that is validated using DNSSEC is thereby proved to
-        be the authoritative data. </t>
+        be the authoritative data.</t>
       </section>
 
       <section title="DNS Service Discovery">
@@ -1087,7 +1095,7 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
 
       <t>Thanks to Bernie Volz for the review of the DHCP section.</t>
 
-      <t>Many thanks to Benjamin Kaduk for the detailed AD review. </t>
+      <t>Many thanks to Benjamin Kaduk for the detailed AD review.</t>
     </section>
   </middle>
 

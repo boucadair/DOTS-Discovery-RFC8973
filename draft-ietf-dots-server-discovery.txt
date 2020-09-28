@@ -5,8 +5,8 @@
 DOTS                                                        M. Boucadair
 Internet-Draft                                                    Orange
 Intended status: Standards Track                                T. Reddy
-Expires: March 26, 2021                                           McAfee
-                                                      September 22, 2020
+Expires: March 31, 2021                                           McAfee
+                                                      September 27, 2020
 
 
     Distributed-Denial-of-Service Open Threat Signaling (DOTS) Agent
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 26, 2021.
+   This Internet-Draft will expire on March 31, 2021.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 1]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 1]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -82,13 +82,13 @@ Table of Contents
    7.  DNS Service Discovery . . . . . . . . . . . . . . . . . . . .  16
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
      8.1.  DHCP  . . . . . . . . . . . . . . . . . . . . . . . . . .  17
-     8.2.  Service Resolution  . . . . . . . . . . . . . . . . . . .  17
+     8.2.  Service Resolution  . . . . . . . . . . . . . . . . . . .  18
      8.3.  DNS Service Discovery . . . . . . . . . . . . . . . . . .  18
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
      9.1.  The Service Name and Transport Protocol Port Number
            Registry  . . . . . . . . . . . . . . . . . . . . . . . .  18
      9.2.  DHCPv6 Options  . . . . . . . . . . . . . . . . . . . . .  19
-     9.3.  DHCPv4 Options  . . . . . . . . . . . . . . . . . . . . .  19
+     9.3.  DHCPv4 Options  . . . . . . . . . . . . . . . . . . . . .  20
      9.4.  Application Service & Application Protocol Tags . . . . .  20
        9.4.1.  DOTS Application Service Tag Registration . . . . . .  20
        9.4.2.  DOTS Call Home Application Service Tag Registration .  20
@@ -96,7 +96,7 @@ Table of Contents
        9.4.4.  signal.tcp Application Protocol Tag Registration  . .  21
        9.4.5.  data.tcp Application Protocol Tag Registration  . . .  21
    10. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  21
-   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  21
+   11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  22
    12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  22
      12.1.  Normative References . . . . . . . . . . . . . . . . . .  22
      12.2.  Informative References . . . . . . . . . . . . . . . . .  23
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 2]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 2]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -165,7 +165,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 3]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 3]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -193,8 +193,8 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    [I-D.ietf-dots-multihoming] for more details.
 
    This document assumes that security credentials to authenticate DOTS
-   server(s) are provisioned to a DOTS client using one of the means
-   such as (but not limited to) those discussed in [RFC8572] or
+   server(s) are provisioned to a DOTS client using a mechanism such as
+   (but not limited to) those discussed in [RFC8572] or
    [I-D.ietf-anima-bootstrapping-keyinfra].  DOTS clients use those
    credentials for authentication purposes following the rules
    documented in [RFC8782].
@@ -221,7 +221,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 4]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 4]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -253,7 +253,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    o  Some of the use cases may allow DOTS clients to have direct
       communications with upstream DOTS servers, that is, no DOTS
       gateway is involved.  Leveraging existing protocol behaviors that
-      do not require specific feature on the node embedding the DOTS
+      do not require specific features on the node embedding the DOTS
       client may ease DOTS deployment.  Typically, the use of
       Straightforward-Naming Authority Pointer (S-NAPTR) lookups
       [RFC3958] allows the DOTS server administrators to provision the
@@ -277,7 +277,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 5]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 5]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -333,7 +333,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 6]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 6]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -376,8 +376,8 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    The discovery method is reiterated by a DOTS agent upon the following
    events:
 
-   o  Expiry of a a validity timer (e.g., DHCP lease, TTL) associated
-      with a discovered DOTS agent.
+   o  Expiry of a a validity timer (e.g., DHCP lease, DNS TTL)
+      associated with a discovered DOTS agent.
 
    o  Expiry of a peer DOTS agent's certificate currently in use.
 
@@ -389,7 +389,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 7]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 7]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -445,7 +445,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 8]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 8]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -501,7 +501,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                 [Page 9]
+Boucadair & Reddy        Expires March 31, 2021                 [Page 9]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -557,7 +557,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 10]
+Boucadair & Reddy        Expires March 31, 2021                [Page 10]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -613,7 +613,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 11]
+Boucadair & Reddy        Expires March 31, 2021                [Page 11]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -669,7 +669,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 12]
+Boucadair & Reddy        Expires March 31, 2021                [Page 12]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -725,7 +725,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 13]
+Boucadair & Reddy        Expires March 31, 2021                [Page 13]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -781,7 +781,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 14]
+Boucadair & Reddy        Expires March 31, 2021                [Page 14]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -837,7 +837,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 15]
+Boucadair & Reddy        Expires March 31, 2021                [Page 15]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -893,7 +893,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 16]
+Boucadair & Reddy        Expires March 31, 2021                [Page 16]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -922,7 +922,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
    The results of the discovery procedure are a function of the
    interface/address family.  Contacting a discovered DOTS server via an
-   interface to which it is not bind may exacerbate the delay required
+   interface to which it is not bound may exacerbate the delay required
    to establish a DOTS channel.  Moreover, such behavior may reveal that
    a DOTS service is enabled by a DOTS client domain and exposes the
    identity of the DOTS service provider (that can be inferred from the
@@ -932,6 +932,27 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
    The security considerations in [RFC2131] and [RFC8415] are to be
    considered.
+
+   Relying on an underlying resolution library to resolve a supplied
+   reference identifier has similar security issues as those discussed
+   in Section 8.2 (e.g., an active attacker may modify DNS messages used
+   to resolve the supplied reference identifier and point the client to
+   an attacker server).
+
+   Supplying both an IP address and the reference identifier makes it
+   easier to use a mis-issued certificate.
+
+
+
+
+
+
+
+
+Boucadair & Reddy        Expires March 31, 2021                [Page 17]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+
 
 8.2.  Service Resolution
 
@@ -945,14 +966,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    reference identifier is found (as described in Section 6 of
    [RFC6125]) in the PKIX certificate's subjectAltName extension, the
    DOTS client should accept the certificate for the server.
-
-
-
-
-Boucadair & Reddy        Expires March 26, 2021                [Page 17]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
    DNS Security Extensions (DNSSEC) [RFC4033] uses cryptographic keys
    and digital signatures to provide authentication of DNS data.  The
@@ -989,26 +1002,17 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [ThisDocument]
 
-   IANA is requested to update the following entries from the registry
-   available at: https://www.iana.org/assignments/service-names-port-
-   numbers/service-names-port-numbers.xhtml.
 
 
 
-
-
-
-
-
-
-
-
-
-
-Boucadair & Reddy        Expires March 26, 2021                [Page 18]
+Boucadair & Reddy        Expires March 31, 2021                [Page 18]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
+
+   IANA is requested to update the following entries from the registry
+   available at: https://www.iana.org/assignments/service-names-port-
+   numbers/service-names-port-numbers.xhtml.
 
      Service Name:            dots-signal
      Port Number:             4646
@@ -1050,21 +1054,23 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    TBA1    OPTION_V6_DOTS_RI        Yes           Yes
    TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes
 
+
+
+
+
+
+
+
+Boucadair & Reddy        Expires March 31, 2021                [Page 19]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+
+
 9.3.  DHCPv4 Options
 
    IANA is requested to assign the following new DHCPv4 Option Codes in
    the registry maintained in: https://www.iana.org/assignments/bootp-
    dhcp-parameters/bootp-dhcp-parameters.xhtml#options.
-
-
-
-
-
-
-Boucadair & Reddy        Expires March 26, 2021                [Page 19]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
                      Name Tag  Data       Meaning         Reference
                                Length
@@ -1108,19 +1114,15 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
    o  Interoperability considerations: None
 
-   o  Relevant publications: This document
 
 
 
-
-
-
-
-
-Boucadair & Reddy        Expires March 26, 2021                [Page 20]
+Boucadair & Reddy        Expires March 31, 2021                [Page 20]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
+
+   o  Relevant publications: This document
 
 9.4.3.  signal.udp Application Protocol Tag Registration
 
@@ -1165,18 +1167,20 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
       Email: praspati@cisco.com
 
-11.  Acknowledgements
-
-   Thanks to Brian Carpenter for the review of the BRSKI text.
 
 
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 21]
+
+Boucadair & Reddy        Expires March 31, 2021                [Page 21]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
+
+11.  Acknowledgements
+
+   Thanks to Brian Carpenter for the review of the BRSKI text.
 
    Many thanks to Russ White for the review, comments, and text
    contribution.
@@ -1225,11 +1229,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-
-
-
-
-Boucadair & Reddy        Expires March 26, 2021                [Page 22]
+Boucadair & Reddy        Expires March 31, 2021                [Page 22]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1285,7 +1285,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 23]
+Boucadair & Reddy        Expires March 31, 2021                [Page 23]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1341,7 +1341,7 @@ Authors' Addresses
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 24]
+Boucadair & Reddy        Expires March 31, 2021                [Page 24]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1397,4 +1397,4 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 26, 2021                [Page 25]
+Boucadair & Reddy        Expires March 31, 2021                [Page 25]
