@@ -78,7 +78,7 @@
     <keyword>Security</keyword>
 
     <abstract>
-      <t>This document specifies mechanisms to configure Districuted Denial of
+      <t>This document specifies mechanisms to configure Distributed Denial of
       Service Open Threat Signaling (DOTS) clients with their DOTS servers.
       The discovery procedure also covers the DOTS Signal Channel Call Home.
       Knowing the appropriate DOTS server for a given location can be useful
@@ -881,14 +881,15 @@ b._dots-signal._udp.example.net. TXT ""
         registry available at:
         https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml.</t>
 
-        <t><figure>
+        <t><figure align="center">
             <artwork><![CDATA[     Service Name:            dots-data
      Port Number:             N/A
      Transport Protocol(s):   TCP
      Description:             DOTS Data Channel Protocol 
                               The service name is used to construct the
-                              SRV service name "_dots-data._tcp" for discovering
-                              DOTS servers used to establish DOTS data channel. 
+                              SRV service name "_dots-data._tcp" for 
+                              discovering DOTS servers used to establish
+                              DOTS data channel. 
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [ThisDocument]
@@ -899,7 +900,7 @@ b._dots-signal._udp.example.net. TXT ""
         available at:
         https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml.</t>
 
-        <t><figure>
+        <t><figure align="center">
             <artwork><![CDATA[     Service Name:            dots-signal
      Port Number:             4646
      Transport Protocol(s):   TCP/UDP
@@ -907,7 +908,8 @@ b._dots-signal._udp.example.net. TXT ""
                               The service name is used to construct the
                               SRV service names "_dots-signal._udp" and 
                               "_dots-signal._tcp" for discovering DOTS 
-                              servers used to establish DOTS signal channel. 
+                              servers used to establish DOTS signal 
+                              channel. 
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [RFC8782][ThisDocument]
@@ -918,10 +920,10 @@ b._dots-signal._udp.example.net. TXT ""
      Transport Protocol(s):   TCP/UDP
      Description:             DOTS Signal Channel Call Home Protocol.
                               The service name is used to construct the
-                              SRV service names "_dots-call-home._udp" and
-                              "_dots-call-home._tcp" for discovering Call
-                              Home DOTS clients used to establish DOTS signal
-                              channel call home.
+                              SRV service names "_dots-call-home._udp" 
+                              and "_dots-call-home._tcp" for discovering 
+                              Call Home DOTS clients used to establish  
+                              DOTS signal channel call home.
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [I-D.ietf-dots-call-home][ThisDocument]

@@ -5,8 +5,8 @@
 DOTS                                                        M. Boucadair
 Internet-Draft                                                    Orange
 Intended status: Standards Track                                T. Reddy
-Expires: March 31, 2021                                           McAfee
-                                                      September 27, 2020
+Expires: April 2, 2021                                            McAfee
+                                                      September 29, 2020
 
 
     Distributed-Denial-of-Service Open Threat Signaling (DOTS) Agent
@@ -15,7 +15,7 @@ Expires: March 31, 2021                                           McAfee
 
 Abstract
 
-   This document specifies mechanisms to configure Districuted Denial of
+   This document specifies mechanisms to configure Distributed Denial of
    Service Open Threat Signaling (DOTS) clients with their DOTS servers.
    The discovery procedure also covers the DOTS Signal Channel Call
    Home.  Knowing the appropriate DOTS server for a given location can
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 31, 2021.
+   This Internet-Draft will expire on April 2, 2021.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 1]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 1]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 2]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 2]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -165,7 +165,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 3]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 3]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -221,7 +221,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 4]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 4]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -277,7 +277,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 5]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 5]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -333,7 +333,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 6]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 6]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -389,7 +389,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 7]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 7]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -445,7 +445,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 8]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 8]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -501,7 +501,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                 [Page 9]
+Boucadair & Reddy         Expires April 2, 2021                 [Page 9]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -557,7 +557,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 10]
+Boucadair & Reddy         Expires April 2, 2021                [Page 10]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -613,7 +613,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 11]
+Boucadair & Reddy         Expires April 2, 2021                [Page 11]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -669,7 +669,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 12]
+Boucadair & Reddy         Expires April 2, 2021                [Page 12]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -725,7 +725,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 13]
+Boucadair & Reddy         Expires April 2, 2021                [Page 13]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -781,7 +781,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 14]
+Boucadair & Reddy         Expires April 2, 2021                [Page 14]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -837,7 +837,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 15]
+Boucadair & Reddy         Expires April 2, 2021                [Page 15]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -893,7 +893,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 16]
+Boucadair & Reddy         Expires April 2, 2021                [Page 16]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -949,7 +949,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 17]
+Boucadair & Reddy         Expires April 2, 2021                [Page 17]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -996,16 +996,16 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
      Transport Protocol(s):   TCP
      Description:             DOTS Data Channel Protocol
                               The service name is used to construct the
-                              SRV service name "_dots-data._tcp" for discovering
-                              DOTS servers used to establish DOTS data channel.
+                              SRV service name "_dots-data._tcp" for
+                              discovering DOTS servers used to establish
+                              DOTS data channel.
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [ThisDocument]
 
 
 
-
-Boucadair & Reddy        Expires March 31, 2021                [Page 18]
+Boucadair & Reddy         Expires April 2, 2021                [Page 18]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1021,7 +1021,8 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
                               The service name is used to construct the
                               SRV service names "_dots-signal._udp" and
                               "_dots-signal._tcp" for discovering DOTS
-                              servers used to establish DOTS signal channel.
+                              servers used to establish DOTS signal
+                              channel.
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [RFC8782][ThisDocument]
@@ -1032,10 +1033,10 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
      Transport Protocol(s):   TCP/UDP
      Description:             DOTS Signal Channel Call Home Protocol.
                               The service name is used to construct the
-                              SRV service names "_dots-call-home._udp" and
-                              "_dots-call-home._tcp" for discovering Call
-                              Home DOTS clients used to establish DOTS signal
-                              channel call home.
+                              SRV service names "_dots-call-home._udp"
+                              and "_dots-call-home._tcp" for discovering
+                              Call Home DOTS clients used to establish
+                              DOTS signal channel call home.
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [I-D.ietf-dots-call-home][ThisDocument]
@@ -1060,8 +1061,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-
-Boucadair & Reddy        Expires March 31, 2021                [Page 19]
+Boucadair & Reddy         Expires April 2, 2021                [Page 19]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1117,7 +1117,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 20]
+Boucadair & Reddy         Expires April 2, 2021                [Page 20]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1173,7 +1173,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 21]
+Boucadair & Reddy         Expires April 2, 2021                [Page 21]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1229,7 +1229,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 22]
+Boucadair & Reddy         Expires April 2, 2021                [Page 22]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1285,7 +1285,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 23]
+Boucadair & Reddy         Expires April 2, 2021                [Page 23]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1341,7 +1341,7 @@ Authors' Addresses
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 24]
+Boucadair & Reddy         Expires April 2, 2021                [Page 24]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
@@ -1397,4 +1397,4 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy        Expires March 31, 2021                [Page 25]
+Boucadair & Reddy         Expires April 2, 2021                [Page 25]
