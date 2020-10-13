@@ -350,10 +350,16 @@
       dependency on an underlying name resolution, but that design requires to
       also supply a name for PKIX-based authentication purposes.</t>
 
+      <t>Given that DOTS gateways can be involved in a DOTS session, a peer
+      DOTS agent can be reachable using a link-local address. Such addresses
+      can also be discovered using the options defined in <xref
+      target="opt"></xref>.</t>
+
       <t>The list of the IP addresses returned by DHCP servers is typically
-      used to feed the DOTS server selection procedure or to provide DOTS
-      agents with primary and backup IP addresses of their peer DOTS
-      agents.</t>
+      used to feed the DOTS server selection procedure including when DOTS
+      agents are provided with primary and backup IP addresses of their peer
+      DOTS agents. An example of DOTS server selection procedure is specified
+      in Section 4.3 of <xref target="RFC8782"></xref>.</t>
 
       <t>The design assumes that the same peer DOTS agent is used for
       establishing both signal and data channels. For more customized
@@ -384,7 +390,7 @@
           server (or Call Home DOTS client).</t>
         </list></t>
 
-      <section title="DHCPv6 DOTS Options">
+      <section anchor="opt" title="DHCPv6 DOTS Options">
         <section title="Format of DOTS Reference Identifier Option">
           <t>The DHCPv6 DOTS Reference Identifier option is used to configure
           a name of the DOTS server (or the name of the Call Home DOTS
@@ -435,7 +441,7 @@
           <t></t>
         </section>
 
-        <section title="Format of DOTS Address Option">
+        <section anchor="add" title="Format of DOTS Address Option">
           <t>The DHCPv6 DOTS Address option can be used to configure a list of
           IPv6 addresses of a DOTS server (or a Call Home DOTS client). The
           format of this option is shown in <xref
@@ -517,7 +523,7 @@
 
           <t>The DHCP client MUST silently discard multicast and host loopback
           addresses <xref target="RFC6890"></xref> conveyed in
-          OPTION_V6_DOTS_ADDRESS. </t>
+          OPTION_V6_DOTS_ADDRESS.</t>
         </section>
       </section>
 
@@ -845,10 +851,13 @@ b._dots-signal._udp.example.net. TXT ""
         listed in Section 22 of <xref target="RFC8415"></xref>, a DOTS agent
         may be pe-configured with a list of trusted DOTS domain names. If such
         list is pre-configured, a DOTS agent will accept a DHCP discovered
-        name if it matches or it is a sub-domain of a name in that list. Also,
-        the DOTS agent has to check that the left-most label of the 'DNS-ID'
-        identifier type within subjectAltName in the server certificate
-        matches a pre-configured name. </t>
+        name if it matches a name in that list. Also, the DOTS agent has to
+        check that the 'DNS-ID' identifier type within subjectAltName in the
+        server certificate matches a pre-configured name. If the DOTS agent is
+        instructed to trust subdomains of the names in that list as well, a
+        DOTS agent will also accept a DHCP discovered name if the left-most
+        label of the discovered name is matching a name in the pre-configured
+        list.</t>
 
         <t>Relying on an underlying resolution library to resolve a supplied
         reference identifier has similar security issues as those discussed in
