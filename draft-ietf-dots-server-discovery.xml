@@ -321,8 +321,8 @@
 
       <t>The discovery method is reiterated by a DOTS agent upon the following
       events:<list style="symbols">
-          <t>Expiry of a a validity timer (e.g., DHCP lease, DNS TTL)
-          associated with a discovered DOTS agent.</t>
+          <t>Expiry of a validity timer (e.g., DHCP lease, DNS TTL) associated
+          with a discovered DOTS agent.</t>
 
           <t>Expiry of a peer DOTS agent's certificate currently in use.</t>
 
@@ -378,10 +378,10 @@
           2001:db8:122:300::1 and 2001:db8:122:300::2 to a requesting DHCP
           client. That list is passed to the DOTS client (or Call Home DOTS
           server) which will try to establish connections to the addresses of
-          that list and destination port number 4646 (or CALL_HOME_PORT). As a
-          result, the DOTS client (or Call Home DOTS server) will select
-          2001:db8:122:300::1 (or 2001:db8:122:300::2) as a DOTS server (or
-          Call Home DOTS client).</t>
+          that list and destination port number 4646 (or the Call Home port
+          number). As a result, the DOTS client (or Call Home DOTS server)
+          will select 2001:db8:122:300::1 (or 2001:db8:122:300::2) as a DOTS
+          server (or Call Home DOTS client).</t>
         </list></t>
 
       <section title="DHCPv6 DOTS Options">
@@ -517,7 +517,7 @@
 
           <t>The DHCP client MUST silently discard multicast and host loopback
           addresses <xref target="RFC6890"></xref> conveyed in
-          OPTION_V6_DOTS_ADDRESS.</t>
+          OPTION_V6_DOTS_ADDRESS. </t>
         </section>
       </section>
 
@@ -707,7 +707,7 @@
         | 2     | TCP      | 2001:db8::1 | 5001 | Signal |
         | 3     | TCP      | 2001:db8::1 | 5002 | Data   |
         +-------+----------+-------------+------+--------+
-                           Table 1]]></artwork>
+                 Table 1: Resolution Results]]></artwork>
         </figure></t>
 
       <t>An example is provided in <xref target="callhome"></xref> for the
@@ -744,7 +744,7 @@
           | 1     | UDP      | 2001:db8::2 | 6000 |
           | 2     | TCP      | 2001:db8::2 | 6001 |
           +-------+----------+-------------+------+
-                         Table 2]]></artwork>
+           Table 2: Resolution Results (Call Home)]]></artwork>
         </figure></t>
 
       <t>Note that customized port numbers are used for the DOTS signal
@@ -752,9 +752,8 @@
       examples shown in Figures <xref format="counter" target="ssrv"></xref>
       and <xref format="counter" target="callhome"></xref> for illustration
       purposes. If default port numbers are used in a deployment, the
-      discovery procedure will return 4646 (DOTS signal channel), 443 (DOTS
-      data channel), and CALL_HOME_PORT (DOTS signal channel call home) as
-      DOTS service port numbers.</t>
+      discovery procedure will return 4646 (DOTS signal channel) and 443 (DOTS
+      data channel) as DOTS service port numbers.</t>
 
       <t>If no DOTS-specific S-NAPTR records can be retrieved, the discovery
       procedure fails for this domain name (and the corresponding interface
@@ -826,9 +825,30 @@ b._dots-signal._udp.example.net. TXT ""
       the DOTS service provider (that can be inferred from the name and the
       destination IP address) to external networks.</t>
 
+      <t>Security considerations related to how security credentials to
+      authenticate DOTS server(s) are provisioned to a DOTS client are those
+      inherent to the mechanism used for that purpose (see for example, <xref
+      target="RFC8572"></xref>).</t>
+
       <section title="DHCP">
         <t>The security considerations in <xref target="RFC2131"></xref> and
-        <xref target="RFC8415"></xref> are to be considered.</t>
+        <xref target="RFC8415"></xref> are to be considered. In particular,
+        issues related to rogue DHCP servers and means to mitigate many of
+        these attacks are discussed in Section 22 of <xref
+        target="RFC8415"></xref>. </t>
+
+        <t>An attacker can get a domain name, domain-validated public
+        certificate from a CA, and host a DOTS agent. An active attacker can
+        then spoof DHCP responses to include the attacker's DOTS agent. Such
+        an attacker can also launch other attacks as discussed in Section 22
+        of <xref target="RFC8415"></xref>. In addition to the mitigations
+        listed in Section 22 of <xref target="RFC8415"></xref>, a DOTS agent
+        may be pe-configured with a list of trusted DOTS domain names. If such
+        list is pre-configured, a DOTS agent will accept a DHCP discovered
+        name if it matches or it is a sub-domain of a name in that list. Also,
+        the DOTS agent has to check that the left-most label of the 'DNS-ID'
+        identifier type within subjectAltName in the server certificate
+        matches a pre-configured name. </t>
 
         <t>Relying on an underlying resolution library to resolve a supplied
         reference identifier has similar security issues as those discussed in
@@ -877,7 +897,7 @@ b._dots-signal._udp.example.net. TXT ""
       <t></t>
 
       <section title="The Service Name and Transport Protocol Port Number Registry">
-        <t>IANA is requested to allocate the following service name from the
+        <t>IANA is requested to allocate the following service names from the
         registry available at:
         https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml.</t>
 
@@ -893,10 +913,22 @@ b._dots-signal._udp.example.net. TXT ""
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [ThisDocument]
+
+     Service Name:            dots-call-home
+     Transport Protocol(s):   TCP/UDP
+     Description:             DOTS Signal Channel Call Home Protocol.
+                              The service name is used to construct the
+                              SRV service names "_dots-call-home._udp" 
+                              and "_dots-call-home._tcp" for discovering 
+                              Call Home DOTS clients used to establish  
+                              DOTS signal channel call home.
+     Assignee:                IESG <iesg@ietf.org>
+     Contact:                 IETF Chair <chair@ietf.org>
+     Reference:               [ThisDocument]
 ]]></artwork>
           </figure></t>
 
-        <t>IANA is requested to update the following entries from the registry
+        <t>IANA is requested to update the following entry from the registry
         available at:
         https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml.</t>
 
@@ -913,26 +945,8 @@ b._dots-signal._udp.example.net. TXT ""
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [RFC8782][ThisDocument]
-
-
-     Service Name:            dots-call-home
-     Port Number:             CALL_HOME_PORT
-     Transport Protocol(s):   TCP/UDP
-     Description:             DOTS Signal Channel Call Home Protocol.
-                              The service name is used to construct the
-                              SRV service names "_dots-call-home._udp" 
-                              and "_dots-call-home._tcp" for discovering 
-                              Call Home DOTS clients used to establish  
-                              DOTS signal channel call home.
-     Assignee:                IESG <iesg@ietf.org>
-     Contact:                 IETF Chair <chair@ietf.org>
-     Reference:               [I-D.ietf-dots-call-home][ThisDocument]
 ]]></artwork>
-          </figure><list style="empty">
-            <t>Note to the RFC Editor: Please replace CALL_HOME_PORT with the
-            port number to be allocated by IANA as requested in <xref
-            target="I-D.ietf-dots-signal-call-home"></xref>.</t>
-          </list></t>
+          </figure></t>
       </section>
 
       <section anchor="iana6" title="DHCPv6 Options">
@@ -1098,6 +1112,9 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
       <t>Thanks to Bernie Volz for the review of the DHCP section.</t>
 
       <t>Many thanks to Benjamin Kaduk for the detailed AD review.</t>
+
+      <t>Thanks to Zhen Cao, Kyle Rose, and Nagendra Nainar for the
+      directorate reviews. </t>
     </section>
   </middle>
 

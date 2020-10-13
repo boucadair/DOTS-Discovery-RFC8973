@@ -5,8 +5,8 @@
 DOTS                                                        M. Boucadair
 Internet-Draft                                                    Orange
 Intended status: Standards Track                                T. Reddy
-Expires: April 2, 2021                                            McAfee
-                                                      September 29, 2020
+Expires: April 16, 2021                                           McAfee
+                                                        October 13, 2020
 
 
     Distributed-Denial-of-Service Open Threat Signaling (DOTS) Agent
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 2, 2021.
+   This Internet-Draft will expire on April 16, 2021.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 1]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 1]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
    to this document.  Code Components extracted from this document must
@@ -84,23 +84,23 @@ Table of Contents
      8.1.  DHCP  . . . . . . . . . . . . . . . . . . . . . . . . . .  17
      8.2.  Service Resolution  . . . . . . . . . . . . . . . . . . .  18
      8.3.  DNS Service Discovery . . . . . . . . . . . . . . . . . .  18
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  19
      9.1.  The Service Name and Transport Protocol Port Number
-           Registry  . . . . . . . . . . . . . . . . . . . . . . . .  18
-     9.2.  DHCPv6 Options  . . . . . . . . . . . . . . . . . . . . .  19
+           Registry  . . . . . . . . . . . . . . . . . . . . . . . .  19
+     9.2.  DHCPv6 Options  . . . . . . . . . . . . . . . . . . . . .  20
      9.3.  DHCPv4 Options  . . . . . . . . . . . . . . . . . . . . .  20
      9.4.  Application Service & Application Protocol Tags . . . . .  20
        9.4.1.  DOTS Application Service Tag Registration . . . . . .  20
-       9.4.2.  DOTS Call Home Application Service Tag Registration .  20
+       9.4.2.  DOTS Call Home Application Service Tag Registration .  21
        9.4.3.  signal.udp Application Protocol Tag Registration  . .  21
        9.4.4.  signal.tcp Application Protocol Tag Registration  . .  21
        9.4.5.  data.tcp Application Protocol Tag Registration  . . .  21
-   10. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  21
+   10. Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  22
    11. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  22
    12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  22
      12.1.  Normative References . . . . . . . . . . . . . . . . . .  22
      12.2.  Informative References . . . . . . . . . . . . . . . . .  23
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
 
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 2]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 2]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 3]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 3]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
                  +---------------+        +-------------+
@@ -221,9 +221,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 4]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 4]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
 3.  Why Multiple Discovery Mechanisms?
@@ -277,9 +277,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 5]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 5]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
    Consequently, this document describes a unified discovery logic
@@ -333,9 +333,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 6]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 6]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
           a reference identifier must also be configured for
@@ -376,8 +376,8 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    The discovery method is reiterated by a DOTS agent upon the following
    events:
 
-   o  Expiry of a a validity timer (e.g., DHCP lease, DNS TTL)
-      associated with a discovered DOTS agent.
+   o  Expiry of a validity timer (e.g., DHCP lease, DNS TTL) associated
+      with a discovered DOTS agent.
 
    o  Expiry of a peer DOTS agent's certificate currently in use.
 
@@ -389,9 +389,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 7]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 7]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
 5.  DHCP Options for DOTS Agent Discovery
@@ -445,16 +445,16 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 8]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 8]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
       server) which will try to establish connections to the addresses
-      of that list and destination port number 4646 (or CALL_HOME_PORT).
-      As a result, the DOTS client (or Call Home DOTS server) will
-      select 2001:db8:122:300::1 (or 2001:db8:122:300::2) as a DOTS
-      server (or Call Home DOTS client).
+      of that list and destination port number 4646 (or the Call Home
+      port number).  As a result, the DOTS client (or Call Home DOTS
+      server) will select 2001:db8:122:300::1 (or 2001:db8:122:300::2)
+      as a DOTS server (or Call Home DOTS client).
 
 5.1.  DHCPv6 DOTS Options
 
@@ -501,9 +501,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                 [Page 9]
+Boucadair & Reddy        Expires April 16, 2021                 [Page 9]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
 5.1.2.  Format of DOTS Address Option
@@ -557,9 +557,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                [Page 10]
+Boucadair & Reddy        Expires April 16, 2021                [Page 10]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
    If the DHCP client receives more than one instance of
@@ -613,9 +613,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                [Page 11]
+Boucadair & Reddy        Expires April 16, 2021                [Page 11]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
    The fields of the option shown in Figure 6 are as follows:
@@ -669,9 +669,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                [Page 12]
+Boucadair & Reddy        Expires April 16, 2021                [Page 12]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
 5.2.3.  DHCPv4 Client Behavior
@@ -725,9 +725,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                [Page 13]
+Boucadair & Reddy        Expires April 16, 2021                [Page 13]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
    2.  Retrieved DNS domain names are then used for S-NAPTR lookups
@@ -781,9 +781,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                [Page 14]
+Boucadair & Reddy        Expires April 16, 2021                [Page 14]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
            +-------+----------+-------------+------+--------+
@@ -793,7 +793,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
            | 2     | TCP      | 2001:db8::1 | 5001 | Signal |
            | 3     | TCP      | 2001:db8::1 | 5002 | Data   |
            +-------+----------+-------------+------+--------+
-                              Table 1
+                    Table 1: Resolution Results
 
    An example is provided in Figure 9 for the Call Home case.  In this
    example, the resolution algorithm will result in IP address(es),
@@ -828,7 +828,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
              | 1     | UDP      | 2001:db8::2 | 6000 |
              | 2     | TCP      | 2001:db8::2 | 6001 |
              +-------+----------+-------------+------+
-                            Table 2
+              Table 2: Resolution Results (Call Home)
 
    Note that customized port numbers are used for the DOTS signal
    channel, DOTS data channel, and DOTS signal channel call home in the
@@ -837,14 +837,13 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                [Page 15]
+Boucadair & Reddy        Expires April 16, 2021                [Page 15]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
-   procedure will return 4646 (DOTS signal channel), 443 (DOTS data
-   channel), and CALL_HOME_PORT (DOTS signal channel call home) as DOTS
-   service port numbers.
+   procedure will return 4646 (DOTS signal channel) and 443 (DOTS data
+   channel) as DOTS service port numbers.
 
    If no DOTS-specific S-NAPTR records can be retrieved, the discovery
    procedure fails for this domain name (and the corresponding interface
@@ -893,9 +892,10 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-Boucadair & Reddy         Expires April 2, 2021                [Page 16]
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 16]
 
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
 
 
    _dots-signal._udp.example.net. PTR  a._dots-signal._udp.example.net.
@@ -928,10 +928,37 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    identity of the DOTS service provider (that can be inferred from the
    name and the destination IP address) to external networks.
 
+   Security considerations related to how security credentials to
+   authenticate DOTS server(s) are provisioned to a DOTS client are
+   those inherent to the mechanism used for that purpose (see for
+   example, [RFC8572]).
+
 8.1.  DHCP
 
    The security considerations in [RFC2131] and [RFC8415] are to be
-   considered.
+   considered.  In particular, issues related to rogue DHCP servers and
+   means to mitigate many of these attacks are discussed in Section 22
+   of [RFC8415].
+
+   An attacker can get a domain name, domain-validated public
+   certificate from a CA, and host a DOTS agent.  An active attacker can
+   then spoof DHCP responses to include the attacker's DOTS agent.  Such
+   an attacker can also launch other attacks as discussed in Section 22
+   of [RFC8415].  In addition to the mitigations listed in Section 22 of
+   [RFC8415], a DOTS agent may be pe-configured with a list of trusted
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 17]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
+
+   DOTS domain names.  If such list is pre-configured, a DOTS agent will
+   accept a DHCP discovered name if it matches or it is a sub-domain of
+   a name in that list.  Also, the DOTS agent has to check that the
+   left-most label of the 'DNS-ID' identifier type within subjectAltName
+   in the server certificate matches a pre-configured name.
 
    Relying on an underlying resolution library to resolve a supplied
    reference identifier has similar security issues as those discussed
@@ -941,18 +968,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
    Supplying both an IP address and the reference identifier makes it
    easier to use a mis-issued certificate.
-
-
-
-
-
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 17]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
 8.2.  Service Resolution
 
@@ -983,11 +998,23 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    updates [RFC2136][RFC3007] SHOULD generally be used to control which
    clients have permission to update DNS records.
 
+
+
+
+
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 18]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
+
 9.  IANA Considerations
 
 9.1.  The Service Name and Transport Protocol Port Number Registry
 
-   IANA is requested to allocate the following service name from the
+   IANA is requested to allocate the following service names from the
    registry available at: https://www.iana.org/assignments/service-
    names-port-numbers/service-names-port-numbers.xhtml.
 
@@ -1003,33 +1030,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
      Contact:                 IETF Chair <chair@ietf.org>
      Reference:               [ThisDocument]
 
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 18]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
-
-   IANA is requested to update the following entries from the registry
-   available at: https://www.iana.org/assignments/service-names-port-
-   numbers/service-names-port-numbers.xhtml.
-
-     Service Name:            dots-signal
-     Port Number:             4646
-     Transport Protocol(s):   TCP/UDP
-     Description:             DOTS Signal Channel Protocol.
-                              The service name is used to construct the
-                              SRV service names "_dots-signal._udp" and
-                              "_dots-signal._tcp" for discovering DOTS
-                              servers used to establish DOTS signal
-                              channel.
-     Assignee:                IESG <iesg@ietf.org>
-     Contact:                 IETF Chair <chair@ietf.org>
-     Reference:               [RFC8782][ThisDocument]
-
-
      Service Name:            dots-call-home
-     Port Number:             CALL_HOME_PORT
      Transport Protocol(s):   TCP/UDP
      Description:             DOTS Signal Channel Call Home Protocol.
                               The service name is used to construct the
@@ -1039,11 +1040,31 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
                               DOTS signal channel call home.
      Assignee:                IESG <iesg@ietf.org>
      Contact:                 IETF Chair <chair@ietf.org>
-     Reference:               [I-D.ietf-dots-call-home][ThisDocument]
+     Reference:               [ThisDocument]
 
-      Note to the RFC Editor: Please replace CALL_HOME_PORT with the
-      port number to be allocated by IANA as requested in
-      [I-D.ietf-dots-signal-call-home].
+   IANA is requested to update the following entry from the registry
+   available at: https://www.iana.org/assignments/service-names-port-
+   numbers/service-names-port-numbers.xhtml.
+
+      Service Name:            dots-signal
+      Port Number:             4646
+      Transport Protocol(s):   TCP/UDP
+      Description:             DOTS Signal Channel Protocol.
+                               The service name is used to construct the
+                               SRV service names "_dots-signal._udp" and
+                               "_dots-signal._tcp" for discovering DOTS
+                               servers used to establish DOTS signal
+                               channel.
+      Assignee:                IESG <iesg@ietf.org>
+      Contact:                 IETF Chair <chair@ietf.org>
+      Reference:               [RFC8782][ThisDocument]
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 19]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
 
 9.2.  DHCPv6 Options
 
@@ -1054,17 +1075,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    Value   Description              Client ORO    Singleton Option
    TBA1    OPTION_V6_DOTS_RI        Yes           Yes
    TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes
-
-
-
-
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 19]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
 9.3.  DHCPv4 Options
 
@@ -1104,6 +1114,14 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
    o  Relevant publications: This document
 
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 20]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
+
 9.4.2.  DOTS Call Home Application Service Tag Registration
 
    o  Application Service Tag: DOTS-CALL-HOME
@@ -1113,14 +1131,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    o  Security Considerations: See Section 8
 
    o  Interoperability considerations: None
-
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 20]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
    o  Relevant publications: This document
 
@@ -1160,23 +1170,20 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
    o  Relevant publications: This document
 
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 21]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
+
 10.  Contributors
 
       Prashanth Patil
       Cisco Systems, Inc.
 
       Email: praspati@cisco.com
-
-
-
-
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 21]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
 11.  Acknowledgements
 
@@ -1191,6 +1198,9 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    Thanks to Bernie Volz for the review of the DHCP section.
 
    Many thanks to Benjamin Kaduk for the detailed AD review.
+
+   Thanks to Zhen Cao, Kyle Rose, and Nagendra Nainar for the
+   directorate reviews.
 
 12.  References
 
@@ -1214,6 +1224,16 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
               DOI 10.17487/RFC3396, November 2002,
               <https://www.rfc-editor.org/info/rfc3396>.
 
+
+
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 22]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
+
    [RFC3958]  Daigle, L. and A. Newton, "Domain-Based Application
               Service Location Using SRV RRs and the Dynamic Delegation
               Discovery Service (DDDS)", RFC 3958, DOI 10.17487/RFC3958,
@@ -1226,13 +1246,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
    [RFC6763]  Cheshire, S. and M. Krochmal, "DNS-Based Service
               Discovery", RFC 6763, DOI 10.17487/RFC6763, February 2013,
               <https://www.rfc-editor.org/info/rfc6763>.
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 22]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
    [RFC6890]  Cotton, M., Vegoda, L., Bonica, R., Ed., and B. Haberman,
               "Special-Purpose IP Address Registries", BCP 153,
@@ -1269,6 +1282,14 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
               Channel Call Home", draft-ietf-dots-signal-call-home-09
               (work in progress), September 2020.
 
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 23]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
+
    [I-D.ietf-dots-use-cases]
               Dobbins, R., Migault, D., Moskowitz, R., Teague, N., Xia,
               L., and K. Nishizuka, "Use cases for DDoS Open Threat
@@ -1279,16 +1300,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
               "Dynamic Updates in the Domain Name System (DNS UPDATE)",
               RFC 2136, DOI 10.17487/RFC2136, April 1997,
               <https://www.rfc-editor.org/info/rfc2136>.
-
-
-
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 23]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
-
 
    [RFC3007]  Wellington, B., "Secure Domain Name System (DNS) Dynamic
               Update", RFC 3007, DOI 10.17487/RFC3007, November 2000,
@@ -1327,6 +1338,14 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
               (DOTS) Architecture", RFC 8811, DOI 10.17487/RFC8811,
               August 2020, <https://www.rfc-editor.org/info/rfc8811>.
 
+
+
+
+Boucadair & Reddy        Expires April 16, 2021                [Page 24]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
+
+
 Authors' Addresses
 
    Mohamed Boucadair
@@ -1335,15 +1354,6 @@ Authors' Addresses
    France
 
    Email: mohamed.boucadair@orange.com
-
-
-
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 24]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
    Tirumaleswar Reddy
@@ -1387,14 +1397,4 @@ Internet-Draft   DOTS Server/Call Home Client Discovery   September 2020
 
 
 
-
-
-
-
-
-
-
-
-
-
-Boucadair & Reddy         Expires April 2, 2021                [Page 25]
+Boucadair & Reddy        Expires April 16, 2021                [Page 25]
