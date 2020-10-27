@@ -10,7 +10,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-ietf-dots-server-discovery-11"
+<rfc category="std" docName="draft-ietf-dots-server-discovery-13"
      ipr="trust200902">
   <front>
     <title
@@ -97,7 +97,7 @@
       method to coordinate a real-time response among involved actors and
       network domains inhibits the effectiveness of DDoS attack mitigation,
       the DOTS signal channel protocol <xref target="RFC8782"></xref> is meant
-      to carry requests for DDoS attack mitigation. This appraoch allows to
+      to carry requests for DDoS attack mitigation. This approach allows to
       reduce the impact of an attack and leads to more efficient defensive
       actions in various deployment scenarios such as those discussed in <xref
       target="I-D.ietf-dots-use-cases"></xref>. Moreover, DOTS clients can
@@ -160,7 +160,7 @@
       target="I-D.ietf-dots-multihoming"></xref> for more details.</t>
 
       <t>This document assumes that security credentials to authenticate DOTS
-      server(s) are provisioned to a DOTS client using a mechanism such as
+      server(s) are pre-provisioned to a DOTS client using a mechanism such as
       (but not limited to) those discussed in <xref target="RFC8572"></xref>
       or <xref target="I-D.ietf-anima-bootstrapping-keyinfra"></xref>. DOTS
       clients use those credentials for authentication purposes following the
@@ -203,10 +203,10 @@
           transit provider provisioned to a DOTS client into IP address(es)
           requires the use of the appropriate DNS resolvers; otherwise,
           resolving those names will fail. The use of protocols such as DHCP
-          does allow to associate provisioned DOTS server domain names with a
+          does allow associating provisioned DOTS server domain names with a
           list of DNS servers to be used for name resolution. Furthermore,
-          DHCP allows to directly provision IP addresses avoiding therefore
-          the need for extra lookup delays.</t>
+          DHCP allows directly providing IP addresses therefore avoiding the
+          need for extra lookup delays.</t>
 
           <t>Some of the use cases may allow DOTS clients to have direct
           communications with upstream DOTS servers, that is, no DOTS gateway
@@ -240,7 +240,7 @@
       <t><list style="symbols">
           <t>Dynamic discovery using DHCP (<xref target="dhcp"></xref>).</t>
 
-          <t>A resolution mechanism based on straightforward Naming Authority
+          <t>A resolution mechanism based on Straightforward Naming Authority
           Pointer (S-NAPTR) resource records in the Domain Name System (DNS)
           (<xref target="srvr"></xref>).</t>
 
@@ -249,17 +249,14 @@
     </section>
 
     <section anchor="logic" title="Unified DOTS Discovery Procedure">
-      <t>A key point in the deployment of DOTS is the ability of network
-      operators to configure DOTS clients with the correct DOTS server(s)
-      information consistently. To accomplish this, operators will need a
-      consistent set of ways in which DOTS clients can discover this
-      information, and a consistent priority among these options. If some
-      devices prefer manual configuration over dynamic discovery, while others
-      prefer dynamic discovery over manual configuration, the result will be a
-      process of "whack-a-mole", where the operator must find devices that are
-      using the wrong DOTS server(s), determine how to ensure the devices are
-      configured properly, and then reconfigure the device through the
-      preferred method.</t>
+      <t>Operators will need a consistent set of ways in which DOTS clients
+      can discover this information and a consistent priority among these
+      options. If some devices prefer manual configuration over dynamic
+      discovery, while others prefer dynamic discovery over manual
+      configuration, the result will be a process of "whack-a-mole", where the
+      operator must find devices that are using the wrong DOTS server(s),
+      determine how to ensure the devices are configured properly, and then
+      reconfigure the device through the preferred method.</t>
 
       <t>All DOTS clients MUST support at least one of the three mechanisms
       below to determine a DOTS server list. All DOTS clients SHOULD implement
@@ -268,22 +265,22 @@
       deployment of DOTS in large scale environments. For example, a CPE will
       support the first two mechanisms, a host within a LAN will support the
       last two mechanisms, or an application server will support a local
-      configuration. More samples are discussed in <xref
-      target="rationale"></xref>:</t>
+      configuration. More examples are discussed in <xref
+      target="rationale"></xref>.</t>
 
       <t><list style="numbers">
           <t>Explicit configuration:<list style="symbols">
-              <t>Local/Manual configuration: A DOTS client, will learn the
-              DOTS server(s) by means of local or manual DOTS configuration
-              (i.e., DOTS servers configured at the system level).
-              Configuration discovered from a DOTS client application is
-              considered as local configuration.<vspace blankLines="1" />An
-              implementation may give the user an opportunity (e.g., by means
-              of configuration file options or menu items) to specify DOTS
-              server(s) for each address family. These may be specified either
-              as IP addresses or the DNS name of a DOTS server. When only DOTS
-              server's IP addresses are configured, a reference identifier
-              must also be configured for authentication purposes.</t>
+              <t>Local/Manual configuration: A DOTS client will learn the DOTS
+              server(s) by means of local or manual DOTS configuration (i.e.,
+              DOTS servers configured at the system level). Configuration
+              discovered from a DOTS client application is considered as local
+              configuration.<vspace blankLines="1" />An implementation may
+              give the user an opportunity (e.g., by means of configuration
+              file options or menu items) to specify DOTS server(s) for each
+              address family. These may be specified either as IP addresses or
+              the DNS name of a DOTS server. When only DOTS server IP
+              addresses are configured, a reference identifier must also be
+              configured for authentication purposes.</t>
 
               <t>Automatic configuration (e.g., DHCP): The DOTS client
               attempts to discover DOTS server(s) names and/or addresses from
@@ -303,7 +300,7 @@
       address(es) of the DOTS server, while others imply an IP address of the
       relevant DOTS server is obtained directly. Implementation options may
       vary on a per device basis, as some devices may not have DNS
-      capabilities and/or proper DNS configuration.</t>
+      capabilities and/or suitable DNS configuration.</t>
 
       <t>DOTS clients will prefer information received from the discovery
       methods in the order listed.</t>
@@ -347,8 +344,8 @@
       identifier for authentication purposes.</t>
 
       <t>Defining the option to include a list of IP addresses would avoid a
-      dependency on an underlying name resolution, but that design requires to
-      also supply a name for PKIX-based authentication purposes.</t>
+      dependency on an underlying name resolution, but that design requires
+      also supplying a name for PKIX-based authentication purposes.</t>
 
       <t>Given that DOTS gateways can be involved in a DOTS session, a peer
       DOTS agent can be reachable using a link-local address. Such addresses
@@ -368,7 +365,7 @@
       only a DOTS reference identifier that will be then passed to the
       procedure described in <xref target="srvr"></xref>.</t>
 
-      <t>The design allows to terminate the base DOTS channels and DOTS Call
+      <t>The design allows terminating the base DOTS channels and DOTS Call
       Home on the same or distinct peer DOTS agents. If distinct peer DOTS
       agents are deployed, the DHCP option can return, for example, a list of
       IP addresses to a requesting DOTS agent. This list includes the IP
@@ -478,10 +475,11 @@
 
               <t>DOTS ipv6-address(es): Includes one or more IPv6 addresses
               <xref target="RFC4291"></xref> of the peer DOTS agent to be used
-              by a DOTS agent for establishing a DOTS session. <vspace
-              blankLines="1" />Note, IPv4-mapped IPv6 addresses (Section
-              2.5.5.2 of <xref target="RFC4291"></xref>) are allowed to be
-              included in this option.</t>
+              by a DOTS agent for establishing a DOTS session. The addresses
+              are listed in the order of preference for use by the DOTS
+              agent.<vspace blankLines="1" />Note, IPv4-mapped IPv6 addresses
+              (Section 2.5.5.2 of <xref target="RFC4291"></xref>) are allowed
+              to be included in this option.</t>
             </list></t>
 
           <t><?rfc subcompact="no" ?></t>
@@ -499,13 +497,17 @@
           OPTION_V6_DOTS_RI (or OPTION_V6_DOTS_ADDRESS) option, it MUST use
           only the first instance of that option.</t>
 
-          <t>If the DHCP client receives both OPTION_V6_DOTS_RI and
-          OPTION_V6_DOTS_ADDRESS, the content of OPTION_V6_DOTS_RI is used as
-          reference identifier for authentication purposes (e.g., PKIX <xref
-          target="RFC6125"></xref>), while the addresses included in
-          OPTION_V6_DOTS_ADDRESS are used to reach the peer DOTS agent. In
+          <t>The DHCP client MUST silently discard multicast and host loopback
+          addresses <xref target="RFC6890"></xref> conveyed in
+          OPTION_V6_DOTS_ADDRESS.</t>
+
+          <t>If the DHCP client receives and validates both OPTION_V6_DOTS_RI
+          and OPTION_V6_DOTS_ADDRESS, the content of OPTION_V6_DOTS_RI is used
+          as the reference identifier for authentication purposes (e.g., PKIX
+          <xref target="RFC6125"></xref>), while the valid addresses included
+          in OPTION_V6_DOTS_ADDRESS are used to reach the peer DOTS agent. In
           other words, the name conveyed in OPTION_V6_DOTS_RI MUST NOT be
-          passed to underlying resolution library in the presence of
+          passed to an underlying resolution library in the presence of valid
           OPTION_V6_DOTS_ADDRESS in a response.</t>
 
           <t>If the DHCP client receives OPTION_V6_DOTS_RI only, but
@@ -520,10 +522,6 @@
           address(es) included in OPTION_V6_DOTS_ADDRESS are used to reach the
           peer DOTS agent. In addition, these addresses can be used as
           identifiers for authentication.</t>
-
-          <t>The DHCP client MUST silently discard multicast and host loopback
-          addresses <xref target="RFC6890"></xref> conveyed in
-          OPTION_V6_DOTS_ADDRESS.</t>
         </section>
       </section>
 
@@ -599,7 +597,9 @@
               addresses included in the option.</t>
 
               <t>DOTS IPv4 Address(es): Contains one or more IPv4 addresses of
-              the peer DOTS agent to be used by a DOTS agent.</t>
+              the peer DOTS agent to be used by a DOTS agent. The addresses
+              are listed in the order of preference for use by the DOTS
+              agent.</t>
             </list></t>
 
           <t><?rfc subcompact="no" ?>OPTION_V4_DOTS_ADDRESS is a
@@ -618,13 +618,17 @@
           OPTION_V4_DOTS_RI option, it MUST use only the first instance of
           that option.</t>
 
-          <t>If the DHCP client receives both OPTION_V4_DOTS_RI and
-          OPTION_V4_DOTS_ADDRESS, the content of OPTION_V4_DOTS_RI is used as
-          reference identifier for authentication purposes (e.g., PKIX <xref
-          target="RFC6125"></xref>), while the addresses included in
-          OPTION_V4_DOTS_ADDRESS are used to reach the peer DOTS agent. In
+          <t>The DHCP client MUST silently discard multicast and host loopback
+          addresses <xref target="RFC6890"></xref> conveyed in
+          OPTION_V4_DOTS_ADDRESS.</t>
+
+          <t>If the DHCP client receives and validates both OPTION_V4_DOTS_RI
+          and OPTION_V4_DOTS_ADDRESS, the content of OPTION_V4_DOTS_RI is used
+          as the reference identifier for authentication purposes (e.g., PKIX
+          <xref target="RFC6125"></xref>), while the valid addresses included
+          in OPTION_V4_DOTS_ADDRESS are used to reach the peer DOTS agent. In
           other words, the name conveyed in OPTION_V4_DOTS_RI MUST NOT be
-          passed to underlying resolution library in the presence of
+          passed to underlying resolution library in the presence of valid
           OPTION_V4_DOTS_ADDRESS in a response.</t>
 
           <t>If the DHCP client receives OPTION_V4_DOTS_RI only, but
@@ -639,10 +643,6 @@
           address(es) included in OPTION_V4_DOTS_ADDRESS are used to reach the
           peer DOTS server. In addition, these addresses can be used as
           identifiers for authentication.</t>
-
-          <t>The DHCP client MUST silently discard multicast and host loopback
-          addresses <xref target="RFC6890"></xref> conveyed in
-          OPTION_V4_DOTS_ADDRESS.</t>
         </section>
       </section>
     </section>
@@ -680,7 +680,7 @@
       listed in Table 1.</t>
 
       <t><figure anchor="ssrv"
-          title="Sample Example of Discovery of DOTS Servers using Service Resolution">
+          title="Example of Discovery of DOTS Servers using Service Resolution">
           <artwork><![CDATA[ example.net.
  IN NAPTR 100 10 "" DOTS:signal.udp "" signal.example.net.
  IN NAPTR 200 10 "" DOTS:signal.tcp "" signal.example.net.
@@ -722,7 +722,7 @@
       'example.net'.</t>
 
       <t><figure anchor="callhome"
-          title="Sample Example of Discovery of DOTS Call Home Client using Service Resolution">
+          title="Example of Discovery of DOTS Call Home Client using Service Resolution">
           <artwork><![CDATA[ example.net.
  IN NAPTR 100 10 "" DOTS-CALL-HOME:signal.udp "" signal.example.net.
  IN NAPTR 200 10 "" DOTS-CALL-HOME:signal.tcp "" signal.example.net.
@@ -841,7 +841,7 @@ b._dots-signal._udp.example.net. TXT ""
         <xref target="RFC8415"></xref> are to be considered. In particular,
         issues related to rogue DHCP servers and means to mitigate many of
         these attacks are discussed in Section 22 of <xref
-        target="RFC8415"></xref>. </t>
+        target="RFC8415"></xref>.</t>
 
         <t>An attacker can get a domain name, domain-validated public
         certificate from a CA, and host a DOTS agent. An active attacker can
@@ -849,15 +849,15 @@ b._dots-signal._udp.example.net. TXT ""
         an attacker can also launch other attacks as discussed in Section 22
         of <xref target="RFC8415"></xref>. In addition to the mitigations
         listed in Section 22 of <xref target="RFC8415"></xref>, a DOTS agent
-        may be pe-configured with a list of trusted DOTS domain names. If such
-        list is pre-configured, a DOTS agent will accept a DHCP discovered
-        name if it matches a name in that list. Also, the DOTS agent has to
-        check that the 'DNS-ID' identifier type within subjectAltName in the
-        server certificate matches a pre-configured name. If the DOTS agent is
-        instructed to trust subdomains of the names in that list as well, a
-        DOTS agent will also accept a DHCP discovered name if the left-most
-        label of the discovered name is matching a name in the pre-configured
-        list.</t>
+        may be pre-configured with a list of trusted DOTS domain names. If
+        such a list is pre-configured, a DOTS agent will accept a
+        DHCP-discovered name if it matches a name in that list. Also, the DOTS
+        agent has to check that the 'DNS-ID' identifier type within
+        subjectAltName in the server certificate matches a pre-configured
+        name. If the DOTS agent is instructed to trust subdomains of the names
+        in that list as well (e.g., "*.example.com"), a DOTS agent will accept
+        a DHCP-discovered name that matches a name in the pre-configured list
+        (e.g., "dots-1.example.com" or "dots-2.example.com").</t>
 
         <t>Relying on an underlying resolution library to resolve a supplied
         reference identifier has similar security issues as those discussed in
@@ -1122,8 +1122,8 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
 
       <t>Many thanks to Benjamin Kaduk for the detailed AD review.</t>
 
-      <t>Thanks to Zhen Cao, Kyle Rose, and Nagendra Nainar for the
-      directorate reviews. </t>
+      <t>Thanks to Zhen Cao, Kyle Rose, Nagendra Nainar, and Peter Yee for the
+      directorate reviews.</t>
     </section>
   </middle>
 
