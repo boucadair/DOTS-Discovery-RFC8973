@@ -190,13 +190,12 @@
       client's request to the mitigator and returning selected mitigator
       feedback to the requesting DOTS client. </t>
 
-      <t>"DOTS agent" is Any DOTS-aware software module capable of
-      participating in a DOTS signal or data channel. It can be a DOTS client,
-      DOTS server, or, as a logical agent, a DOTS gateway.</t>
-
       <t>"Call Home DOTS client" (or "Call Home DOTS server") refers to a DOTS
       client (or DOTS server) deployed in a Call Home scenario (<xref
       target="fa"></xref>).</t>
+
+      <t>"DOTS agent" is any DOTS-aware software module capable of
+      participating in a DOTS channel.</t>
 
       <t>"Peer DOTS agent" refers to the peer DOTS server (base DOTS
       operation) or to a peer Call Home DOTS client (for DOTS Signal Channel
