@@ -139,8 +139,8 @@
       <t><figure align="center" anchor="fa"
           title="Basic DOTS Signal Channel Call Home Functional Architecture">
           <artwork align="center"><![CDATA[+---------------+        +-------------+    
-| Alert/DMS/    | ~~~~~~ |  Call Home  |    
-| Peer DMS/...  |        | DOTS client |    
+| Alert         | ~~~~~~ |  Call Home  |    
+|               |        | DOTS client |    
 +---------------+        +------+------+    
                                 |           
                                 |           
@@ -175,11 +175,28 @@
       only when, they appear in all capitals, as shown here.</t>
 
       <t>The reader should be familiar with the terms defined in <xref
-      target="RFC8811"></xref>, <xref target="RFC3958"></xref>, and <xref
-      target="I-D.ietf-dots-signal-call-home"></xref>.</t>
+      target="RFC3958"></xref>.</t>
 
       <t>DHCP refers to both DHCPv4 <xref target="RFC2131"></xref> and DHCPv6
       <xref target="RFC8415"></xref>.</t>
+
+      <t>"DOTS client" refers to a DOTS-aware software module responsible for
+      requesting attack response coordination with other DOTS-aware elements.
+      </t>
+
+      <t>"DOTS server" is a DOTS-aware software module handling and responding
+      to messages from DOTS clients. The DOTS server enables mitigation on
+      behalf of the DOTS client, if requested, by communicating the DOTS
+      client's request to the mitigator and returning selected mitigator
+      feedback to the requesting DOTS client. </t>
+
+      <t>"DOTS agent" is Any DOTS-aware software module capable of
+      participating in a DOTS signal or data channel. It can be a DOTS client,
+      DOTS server, or, as a logical agent, a DOTS gateway.</t>
+
+      <t>"Call Home DOTS client" (or "Call Home DOTS server") refers to a DOTS
+      client (or DOTS server) deployed in a Call Home scenario (<xref
+      target="fa"></xref>).</t>
 
       <t>"Peer DOTS agent" refers to the peer DOTS server (base DOTS
       operation) or to a peer Call Home DOTS client (for DOTS Signal Channel
