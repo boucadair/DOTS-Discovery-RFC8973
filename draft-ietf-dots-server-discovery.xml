@@ -10,7 +10,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="draft-ietf-dots-server-discovery-13"
+<rfc category="std" docName="draft-ietf-dots-server-discovery-14"
      ipr="trust200902">
   <front>
     <title
@@ -97,8 +97,8 @@
       method to coordinate a real-time response among involved actors and
       network domains inhibits the effectiveness of DDoS attack mitigation,
       the DOTS signal channel protocol <xref target="RFC8782"></xref> is meant
-      to carry requests for DDoS attack mitigation. This approach allows to
-      reduce the impact of an attack and leads to more efficient defensive
+      to carry requests for DDoS attack mitigation. With this approach, DOTS
+      can reduce the impact of an attack and lead to more efficient defensive
       actions in various deployment scenarios such as those discussed in <xref
       target="I-D.ietf-dots-use-cases"></xref>. Moreover, DOTS clients can
       instruct a DOTS server to install named filtering rules by means of the
@@ -187,17 +187,17 @@
     </section>
 
     <section anchor="rationale" title="Why Multiple Discovery Mechanisms?">
-      <t>It is tempting to specify one single discovery mechanism for DOTS.
-      Nevertheless, the analysis of the various use cases sketched in <xref
+      <t>Analysis of the various use cases sketched in <xref
       target="I-D.ietf-dots-use-cases"></xref> reveals that it is unlikely
       that one single discovery method can be suitable for all the sample
       deployments. Concretely:<list style="symbols">
           <t>Many of the use cases discussed in <xref
-          target="I-D.ietf-dots-use-cases"></xref> do involve a CPE device.
-          Multiple CPEs, connected to distinct network providers, may even be
-          considered. It is intuitive to leverage existing mechanisms such as
-          discovery using service resolution or DHCP to provision the CPE
-          acting as a DOTS client with the DOTS server(s).</t>
+          target="I-D.ietf-dots-use-cases"></xref> do involve a Customer
+          Premises Equipment (CPE) device. Multiple CPEs, connected to
+          distinct network providers, may even be considered. It is intuitive
+          to leverage existing mechanisms such as discovery using service
+          resolution or DHCP to provision the CPE acting as a DOTS client with
+          the DOTS server(s).</t>
 
           <t>Resolving a DOTS server domain name offered by an upstream
           transit provider provisioned to a DOTS client into IP address(es)
@@ -277,10 +277,10 @@
               configuration.<vspace blankLines="1" />An implementation may
               give the user an opportunity (e.g., by means of configuration
               file options or menu items) to specify DOTS server(s) for each
-              address family. These may be specified either as IP addresses or
-              the DNS name of a DOTS server. When only DOTS server IP
-              addresses are configured, a reference identifier must also be
-              configured for authentication purposes.</t>
+              address family. These may be specified either as a list of IP
+              addresses or the DNS name of a DOTS server. When only DOTS
+              server IP addresses are configured, a reference identifier must
+              also be configured for authentication purposes.</t>
 
               <t>Automatic configuration (e.g., DHCP): The DOTS client
               attempts to discover DOTS server(s) names and/or addresses from
@@ -337,8 +337,8 @@
         </list></t>
 
       <t>In order to allow for PKIX-based authentication between a DOTS client
-      and server while accommodating for the current best practices for
-      issuing certificates, this document allows for configuring names to DOTS
+      and server while accommodating the current best practices for issuing
+      certificates, this document allows for configuring names to DOTS
       clients. These names can be used for two purposes: to retrieve the list
       of IP addresses of a DOTS server or to be presented as a reference
       identifier for authentication purposes.</t>
@@ -423,7 +423,8 @@
 
           <t><?rfc subcompact="no" ?>An example of the dots-agent-name
           encoding is shown in <xref target="fqdn"></xref>. This example
-          conveys the FQDN "dots.example.com.".</t>
+          conveys the FQDN "dots.example.com.&rdquo;, and the resulting
+          Option-length field is 18. </t>
 
           <t><figure anchor="fqdn"
               title="An example of the dots-agent-name Encoding">
@@ -1110,12 +1111,13 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
     </section>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
-      <t>Thanks to Brian Carpenter for the review of the BRSKI text.</t>
+      <t>Thanks to Brian Carpenter for the review of the BRSKI text used be in
+      previous versions of the specification.</t>
 
       <t>Many thanks to Russ White for the review, comments, and text
       contribution.</t>
 
-      <t>Thanks for Dan Wing, Pei Wei, Valery Smyslov, and Jon Shallow for the
+      <t>Thanks to Dan Wing, Pei Wei, Valery Smyslov, and Jon Shallow for the
       review and comments.</t>
 
       <t>Thanks to Bernie Volz for the review of the DHCP section.</t>
@@ -1124,6 +1126,8 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
 
       <t>Thanks to Zhen Cao, Kyle Rose, Nagendra Nainar, and Peter Yee for the
       directorate reviews.</t>
+
+      <t>Thanks to Barry Leiba for the IESG review. </t>
     </section>
   </middle>
 
