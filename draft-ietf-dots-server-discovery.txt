@@ -384,8 +384,8 @@ Internet-Draft   DOTS Server/Call Home Client Discovery     October 2020
    discover its Call Home DOTS client in the context of
    [I-D.ietf-dots-signal-call-home].
 
-   The discovery method is performed upon attachment to a network, and
-   is reiterated by a DOTS agent upon the following events:
+   The discovery method is performed upon bootstrapping of a DOTS agent,
+   and is reiterated by the DOTS agent upon the following events:
 
 
 
