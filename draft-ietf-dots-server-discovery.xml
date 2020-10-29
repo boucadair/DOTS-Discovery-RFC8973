@@ -332,8 +332,10 @@
       discover its Call Home DOTS client in the context of <xref
       target="I-D.ietf-dots-signal-call-home"></xref>.</t>
 
-      <t>The discovery method is reiterated by a DOTS agent upon the following
-      events:<list style="symbols">
+      <t>The discovery method is performed upon attachment to a network, and
+      is reiterated by a DOTS agent upon the following events: </t>
+
+      <t><list style="symbols">
           <t>Expiry of a validity timer (e.g., DHCP lease, DNS TTL) associated
           with a discovered DOTS agent.</t>
 
