@@ -181,14 +181,14 @@
       <xref target="RFC8415"></xref>.</t>
 
       <t>"DOTS client" refers to a DOTS-aware software module responsible for
-      requesting attack response coordination with other DOTS-aware elements.
-      </t>
+      requesting attack response coordination with other DOTS-aware
+      elements.</t>
 
       <t>"DOTS server" is a DOTS-aware software module handling and responding
       to messages from DOTS clients. The DOTS server enables mitigation on
       behalf of the DOTS client, if requested, by communicating the DOTS
       client's request to the mitigator and returning selected mitigator
-      feedback to the requesting DOTS client. </t>
+      feedback to the requesting DOTS client.</t>
 
       <t>"Call Home DOTS client" (or "Call Home DOTS server") refers to a DOTS
       client (or DOTS server) deployed in a Call Home scenario (<xref
@@ -333,7 +333,7 @@
       target="I-D.ietf-dots-signal-call-home"></xref>.</t>
 
       <t>The discovery method is performed upon bootstrapping of a DOTS agent,
-      and is reiterated by the DOTS agent upon the following events: </t>
+      and is reiterated by the DOTS agent upon the following events:</t>
 
       <t><list style="symbols">
           <t>Expiry of a validity timer (e.g., DHCP lease, DNS TTL) associated
@@ -356,10 +356,10 @@
 
       <t>In order to allow for PKIX-based authentication between a DOTS client
       and server while accommodating the current best practices for issuing
-      certificates, this document allows for configuring names to DOTS
-      clients. These names can be used for two purposes: to retrieve the list
-      of IP addresses of a DOTS server or to be presented as a reference
-      identifier for authentication purposes.</t>
+      certificates, this document allows DOTS agents to retrieve the names of
+      their peer DOTS agents. These names can be used for two purposes: to
+      retrieve the list of IP addresses of a DOTS server or to be presented as
+      a reference identifier for authentication purposes.</t>
 
       <t>Defining the option to include a list of IP addresses would avoid a
       dependency on an underlying name resolution, but that design requires
@@ -442,7 +442,7 @@
           <t><?rfc subcompact="no" ?>An example of the dots-agent-name
           encoding is shown in <xref target="fqdn"></xref>. This example
           conveys the FQDN "dots.example.com.&rdquo;, and the resulting
-          Option-length field is 18. </t>
+          Option-length field is 18.</t>
 
           <t><figure anchor="fqdn"
               title="An example of the dots-agent-name Encoding">
@@ -1145,7 +1145,7 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
       <t>Thanks to Zhen Cao, Kyle Rose, Nagendra Nainar, and Peter Yee for the
       directorate reviews.</t>
 
-      <t>Thanks to Barry Leiba for the IESG review. </t>
+      <t>Thanks to Barry Leiba and Martin Duke for the IESG review.</t>
     </section>
   </middle>
 
