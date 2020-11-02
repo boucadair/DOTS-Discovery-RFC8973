@@ -358,8 +358,8 @@
       and server while accommodating the current best practices for issuing
       certificates, this document allows DOTS agents to retrieve the names of
       their peer DOTS agents. These names can be used for two purposes: to
-      retrieve the list of IP addresses of a DOTS server or to be presented as
-      a reference identifier for authentication purposes.</t>
+      retrieve the list of IP addresses of a peer DOTS agent or to be
+      presented as a reference identifier for authentication purposes.</t>
 
       <t>Defining the option to include a list of IP addresses would avoid a
       dependency on an underlying name resolution, but that design requires
