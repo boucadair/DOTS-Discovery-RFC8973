@@ -240,9 +240,8 @@
           service subscription (i.e., manual/local configuration).</t>
 
           <t>Multiple DOTS clients may be enabled within a network (e.g.,
-          enterprise network). Dynamic means to discover DOTS servers in a
-          deterministic manner are interesting from an operational
-          standpoint.</t>
+          enterprise network). Dynamic discovery needs to be deterministic
+          from an operational standpoint.</t>
 
           <t>Some of the use cases may involve a DOTS gateway that is
           responsible for selecting the appropriate DOTS server(s) to relay
@@ -269,10 +268,10 @@
       can discover this information and a consistent priority among these
       options. If some devices prefer manual configuration over dynamic
       discovery, while others prefer dynamic discovery over manual
-      configuration, the result will be a process of "whack-a-mole", where the
-      operator must find devices that are using the wrong DOTS server(s),
-      determine how to ensure the devices are configured properly, and then
-      reconfigure the device through the preferred method.</t>
+      configuration, the result will be a process where the operator must find
+      devices that are using the wrong DOTS server(s), determine how to ensure
+      the devices are configured properly, and then reconfigure the device
+      through the preferred method.</t>
 
       <t>All DOTS clients MUST support at least one of the three mechanisms
       below to determine a DOTS server list. All DOTS clients SHOULD implement
@@ -319,7 +318,7 @@
       capabilities and/or suitable DNS configuration.</t>
 
       <t>DOTS clients will prefer information received from the discovery
-      methods in the order listed.</t>
+      methods in the order listed above.</t>
 
       <t>On hosts with more than one interface or address family (IPv4/IPv6),
       the DOTS server discovery procedure has to be performed for each
@@ -918,6 +917,11 @@ b._dots-signal._udp.example.net. TXT ""
         updates <xref target="RFC2136"></xref><xref target="RFC3007"></xref>
         SHOULD generally be used to control which clients have permission to
         update DNS records.</t>
+
+        <t>Note that means such as DNS over TLS (DoT) <xref
+        target="RFC7858"></xref> or DNS over HTTPS (DoH) <xref
+        target="RFC8484"></xref> can be used to to prevent eavesdroppers from
+        accessing DNS messages. </t>
       </section>
     </section>
 
@@ -1145,7 +1149,8 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
       <t>Thanks to Zhen Cao, Kyle Rose, Nagendra Nainar, and Peter Yee for the
       directorate reviews.</t>
 
-      <t>Thanks to Barry Leiba and Martin Duke for the IESG review.</t>
+      <t>Thanks to Barry Leiba, Martin Duke, and Roman Danyliw for the IESG
+      review.</t>
     </section>
   </middle>
 
@@ -1174,6 +1179,10 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
 
     <references title="Informative References">
       <?rfc include='reference.RFC.8782'?>
+
+      <?rfc include='reference.RFC.7858'?>
+
+      <?rfc include='reference.RFC.8484'?>
 
       <?rfc include='reference.RFC.8811'?>
 
