@@ -281,7 +281,8 @@
       support the first two mechanisms, a host within a LAN will support the
       last two mechanisms, or an application server will support a local
       configuration. More examples are discussed in <xref
-      target="rationale"></xref>.</t>
+      target="rationale"></xref>. DOTS clients will prefer information
+      received from the discovery methods in the order listed below.</t>
 
       <t><list style="numbers">
           <t>Explicit configuration:<list style="symbols">
@@ -317,9 +318,6 @@
       vary on a per device basis, as some devices may not have DNS
       capabilities and/or suitable DNS configuration.</t>
 
-      <t>DOTS clients will prefer information received from the discovery
-      methods in the order listed above.</t>
-
       <t>On hosts with more than one interface or address family (IPv4/IPv6),
       the DOTS server discovery procedure has to be performed for each
       interface/address-family combination. A DOTS client may choose to
@@ -338,7 +336,8 @@
           <t>Expiry of a validity timer (e.g., DHCP lease, DHCP information
           refresh time, DNS TTL) associated with a discovered DOTS agent.</t>
 
-          <t>Expiry of a peer DOTS agent's certificate currently in use.</t>
+          <t>Expiry of the certificate of a peer DOTS agent currently in
+          use.</t>
 
           <t>Attachment to a new network.</t>
         </list></t>
@@ -496,10 +495,11 @@
               by a DOTS agent for establishing a DOTS session. The addresses
               are listed in the order of preference for use by the DOTS
               agent.<vspace blankLines="1" />Note, IPv4-mapped IPv6 addresses
-              (Section 2.5.5.2 of <xref target="RFC4291"></xref>) are allowed
-              to be included in this option. This is particularly useful in
-              IPv4 service continuity deployments where only DHCPv6 is
-              used.</t>
+              (Section 2.5.5.2 of <xref target="RFC4291"></xref>) may be
+              included in this option when there is no DHCPv4 server able to
+              advertise the DHCPv4 DOTS options (<xref
+              target="dhcpv4"></xref>) and when only IPv4 connectivity is
+              possible to the peer DOTS agent. </t>
             </list></t>
 
           <t><?rfc subcompact="no" ?></t>
@@ -531,12 +531,11 @@
           OPTION_V6_DOTS_ADDRESS in a response.</t>
 
           <t>If the DHCP client receives OPTION_V6_DOTS_RI only, but
-          OPTION_V6_DOTS_RI contains more than one name, as distinguished by
-          the presence of multiple root labels, the DHCP client MUST use only
-          the first name. Once the name is validated (Section 10 of <xref
-          target="RFC8415"></xref>), the name is passed to a name resolution
-          library. Moreover, that name is also used as a reference identifier
-          for authentication purposes.</t>
+          OPTION_V6_DOTS_RI contains more than one name, the DHCP client MUST
+          use only the first name. Once the name is validated (Section 10 of
+          <xref target="RFC8415"></xref>), the name is passed to a name
+          resolution library. Moreover, that name is also used as a reference
+          identifier for authentication purposes.</t>
 
           <t>If the DHCP client receives OPTION_V6_DOTS_ADDRESS only, the
           address(es) included in OPTION_V6_DOTS_ADDRESS are used to reach the
@@ -545,7 +544,7 @@
         </section>
       </section>
 
-      <section title="DHCPv4 DOTS Options">
+      <section anchor="dhcpv4" title="DHCPv4 DOTS Options">
         <section title="Format of DOTS Reference Identifier Option">
           <t>The DHCPv4 <xref target="RFC2132"></xref> DOTS Reference
           Identifier option is used to configure a name of the peer DOTS

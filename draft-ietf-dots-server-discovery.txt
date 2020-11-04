@@ -5,8 +5,8 @@
 DOTS                                                        M. Boucadair
 Internet-Draft                                                    Orange
 Intended status: Standards Track                                T. Reddy
-Expires: May 7, 2021                                              McAfee
-                                                        November 3, 2020
+Expires: May 8, 2021                                              McAfee
+                                                        November 4, 2020
 
 
     Distributed-Denial-of-Service Open Threat Signaling (DOTS) Agent
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 7, 2021.
+   This Internet-Draft will expire on May 8, 2021.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                  [Page 1]
+Boucadair & Reddy          Expires May 8, 2021                  [Page 1]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -75,7 +75,7 @@ Table of Contents
        5.1.2.  Format of DOTS Address Option . . . . . . . . . . . .  10
        5.1.3.  DHCPv6 Client Behavior  . . . . . . . . . . . . . . .  11
      5.2.  DHCPv4 DOTS Options . . . . . . . . . . . . . . . . . . .  11
-       5.2.1.  Format of DOTS Reference Identifier Option  . . . . .  12
+       5.2.1.  Format of DOTS Reference Identifier Option  . . . . .  11
        5.2.2.  Format of DOTS Address Option . . . . . . . . . . . .  12
        5.2.3.  DHCPv4 Client Behavior  . . . . . . . . . . . . . . .  13
    6.  Discovery using Service Resolution  . . . . . . . . . . . . .  14
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                  [Page 2]
+Boucadair & Reddy          Expires May 8, 2021                  [Page 2]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -165,7 +165,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                  [Page 3]
+Boucadair & Reddy          Expires May 8, 2021                  [Page 3]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -221,7 +221,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                  [Page 4]
+Boucadair & Reddy          Expires May 8, 2021                  [Page 4]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -277,7 +277,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                  [Page 5]
+Boucadair & Reddy          Expires May 8, 2021                  [Page 5]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -325,15 +325,15 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
    example, a CPE will support the first two mechanisms, a host within a
    LAN will support the last two mechanisms, or an application server
    will support a local configuration.  More examples are discussed in
-   Section 3.
+   Section 3.  DOTS clients will prefer information received from the
+   discovery methods in the order listed below.
 
    1.  Explicit configuration:
 
 
 
 
-
-Boucadair & Reddy          Expires May 7, 2021                  [Page 6]
+Boucadair & Reddy          Expires May 8, 2021                  [Page 6]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -370,9 +370,6 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
    options may vary on a per device basis, as some devices may not have
    DNS capabilities and/or suitable DNS configuration.
 
-   DOTS clients will prefer information received from the discovery
-   methods in the order listed above.
-
    On hosts with more than one interface or address family (IPv4/IPv6),
    the DOTS server discovery procedure has to be performed for each
    interface/address-family combination.  A DOTS client may choose to
@@ -387,17 +384,17 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
    The discovery method is performed upon bootstrapping of a DOTS agent,
    and is reiterated by the DOTS agent upon the following events:
 
+   o  Expiry of a validity timer (e.g., DHCP lease, DHCP information
+      refresh time, DNS TTL) associated with a discovered DOTS agent.
 
 
-Boucadair & Reddy          Expires May 7, 2021                  [Page 7]
+
+Boucadair & Reddy          Expires May 8, 2021                  [Page 7]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
-   o  Expiry of a validity timer (e.g., DHCP lease, DHCP information
-      refresh time, DNS TTL) associated with a discovered DOTS agent.
-
-   o  Expiry of a peer DOTS agent's certificate currently in use.
+   o  Expiry of the certificate of a peer DOTS agent currently in use.
 
    o  Attachment to a new network.
 
@@ -442,17 +439,17 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
    The design allows terminating the base DOTS channels and DOTS Call
    Home on the same or distinct peer DOTS agents.  If distinct peer DOTS
    agents are deployed, the DHCP option can return, for example, a list
+   of IP addresses to a requesting DOTS agent.  This list includes the
+   IP address to be used for the base DOTS channels and the IP address
+   for the DOTS Call Home.  The DOTS client (or Call Home DOTS server)
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                  [Page 8]
+Boucadair & Reddy          Expires May 8, 2021                  [Page 8]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
-   of IP addresses to a requesting DOTS agent.  This list includes the
-   IP address to be used for the base DOTS channels and the IP address
-   for the DOTS Call Home.  The DOTS client (or Call Home DOTS server)
    will then use the address selection procedure specified in
    Section 4.3 of [RFC8782] to identify the IP address of the peer DOTS
    server (or Call Home DOTS client).  For example:
@@ -497,18 +494,17 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
       agent.  This field is formatted as specified in Section 10 of
       [RFC8415].
 
-
-
-
-
-Boucadair & Reddy          Expires May 7, 2021                  [Page 9]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
-
-
    An example of the dots-agent-name encoding is shown in Figure 4.
    This example conveys the FQDN "dots.example.com.", and the resulting
    Option-length field is 18.
+
+
+
+
+Boucadair & Reddy          Expires May 8, 2021                  [Page 9]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
+
 
         +------+------+------+------+------+------+------+------+------+
         | 0x04 |   d  |   o  |   t  |  s   | 0x07 |   e  |   x  |   a  |
@@ -554,18 +550,17 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
       establishing a DOTS session.  The addresses are listed in the
       order of preference for use by the DOTS agent.
 
+      Note, IPv4-mapped IPv6 addresses (Section 2.5.5.2 of [RFC4291])
+      may be included in this option when there is no DHCPv4 server able
+      to advertise the DHCPv4 DOTS options (Section 5.2) and when only
+      IPv4 connectivity is possible to the peer DOTS agent.
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 10]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 10]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
-
-      Note, IPv4-mapped IPv6 addresses (Section 2.5.5.2 of [RFC4291])
-      are allowed to be included in this option.  This is particularly
-      useful in IPv4 service continuity deployments where only DHCPv6 is
-      used.
 
 5.1.3.  DHCPv6 Client Behavior
 
@@ -592,9 +587,8 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
    OPTION_V6_DOTS_ADDRESS in a response.
 
    If the DHCP client receives OPTION_V6_DOTS_RI only, but
-   OPTION_V6_DOTS_RI contains more than one name, as distinguished by
-   the presence of multiple root labels, the DHCP client MUST use only
-   the first name.  Once the name is validated (Section 10 of
+   OPTION_V6_DOTS_RI contains more than one name, the DHCP client MUST
+   use only the first name.  Once the name is validated (Section 10 of
    [RFC8415]), the name is passed to a name resolution library.
    Moreover, that name is also used as a reference identifier for
    authentication purposes.
@@ -606,23 +600,23 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 5.2.  DHCPv4 DOTS Options
 
-
-
-
-
-
-
-
-Boucadair & Reddy          Expires May 7, 2021                 [Page 11]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
-
-
 5.2.1.  Format of DOTS Reference Identifier Option
 
    The DHCPv4 [RFC2132] DOTS Reference Identifier option is used to
    configure a name of the peer DOTS agent.  The format of this option
    is illustrated in Figure 6.
+
+
+
+
+
+
+
+
+Boucadair & Reddy          Expires May 8, 2021                 [Page 11]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
+
 
             Code  Length   Peer DOTS agent name
            +-----+-----+-----+-----+-----+-----+-----+--
@@ -667,18 +661,19 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
                    Figure 7: DHCPv4 DOTS Address Option
 
-
-
-Boucadair & Reddy          Expires May 7, 2021                 [Page 12]
-
-Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
-
-
    The fields of the option shown in Figure 7 are as follows:
 
    o  Code: OPTION_V4_DOTS_ADDRESS (TBA4, see Section 9.3).
    o  Length: is set to 4*N, where N is the number of IPv4 addresses
       included in the option.
+
+
+
+Boucadair & Reddy          Expires May 8, 2021                 [Page 12]
+
+Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
+
+
    o  DOTS IPv4 Address(es): Contains one or more IPv4 addresses of the
       peer DOTS agent to be used by a DOTS agent.  The addresses are
       listed in the order of preference for use by the DOTS agent.
@@ -725,7 +720,12 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 13]
+
+
+
+
+
+Boucadair & Reddy          Expires May 8, 2021                 [Page 13]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -781,7 +781,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 14]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 14]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -837,7 +837,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 15]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 15]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -893,7 +893,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 16]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 16]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -949,7 +949,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 17]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 17]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1005,7 +1005,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 18]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 18]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1061,7 +1061,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 19]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 19]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1117,7 +1117,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 20]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 20]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1173,7 +1173,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 21]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 21]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1229,7 +1229,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 22]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 22]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1285,7 +1285,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 23]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 23]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1341,7 +1341,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 24]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 24]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1397,7 +1397,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 25]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 25]
 
 Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
 
@@ -1453,4 +1453,4 @@ Authors' Addresses
 
 
 
-Boucadair & Reddy          Expires May 7, 2021                 [Page 26]
+Boucadair & Reddy          Expires May 8, 2021                 [Page 26]
