@@ -1040,7 +1040,7 @@ Internet-Draft   DOTS Server/Call Home Client Discovery    November 2020
    clients have permission to update DNS records.
 
    Note that means such as DNS over TLS (DoT) [RFC7858] or DNS over
-   HTTPS (DoH) [RFC8484] can be used to to prevent eavesdroppers from
+   HTTPS (DoH) [RFC8484] can be used to prevent eavesdroppers from
    accessing DNS messages.
 
 9.  IANA Considerations

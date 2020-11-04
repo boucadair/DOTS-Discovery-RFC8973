@@ -922,7 +922,7 @@ b._dots-signal._udp.example.net. TXT ""
 
         <t>Note that means such as DNS over TLS (DoT) <xref
         target="RFC7858"></xref> or DNS over HTTPS (DoH) <xref
-        target="RFC8484"></xref> can be used to to prevent eavesdroppers from
+        target="RFC8484"></xref> can be used to prevent eavesdroppers from
         accessing DNS messages. </t>
       </section>
     </section>
