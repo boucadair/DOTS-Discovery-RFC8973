@@ -102,7 +102,7 @@
       actions in various deployment scenarios such as those discussed in <xref
       target="I-D.ietf-dots-use-cases"></xref>. Moreover, DOTS clients can
       instruct a DOTS server to install named filtering rules by means of the
-      DOTS data channel protocol <xref target="RFC8782"></xref>.</t>
+      DOTS data channel protocol <xref target="RFC8783"></xref>.</t>
 
       <t>The basic high-level DOTS architecture is illustrated in <xref
       target="arch"></xref>.</t>
@@ -156,8 +156,8 @@
       cases.</t>
 
       <t>Considerations for the selection of DOTS server(s) by multi-homed
-      DOTS clients are out of scope; readers should refer to <xref
-      target="I-D.ietf-dots-multihoming"></xref> for more details.</t>
+      DOTS clients are out of this document scope; readers should refer to
+      <xref target="I-D.ietf-dots-multihoming"></xref> for more details.</t>
 
       <t>This document assumes that security credentials to authenticate DOTS
       server(s) are pre-provisioned to a DOTS client using a mechanism such as
@@ -263,7 +263,7 @@
         </list></t>
     </section>
 
-    <section anchor="logic" title="Unified DOTS Discovery Procedure">
+    <section anchor="logic" title="DOTS Discovery Procedure">
       <t>Operators will need a consistent set of ways in which DOTS clients
       can discover this information and a consistent priority among these
       options. If some devices prefer manual configuration over dynamic
@@ -335,8 +335,8 @@
       and is reiterated by the DOTS agent upon the following events:</t>
 
       <t><list style="symbols">
-          <t>Expiry of a validity timer (e.g., DHCP lease, DNS TTL) associated
-          with a discovered DOTS agent.</t>
+          <t>Expiry of a validity timer (e.g., DHCP lease, DHCP information
+          refresh time, DNS TTL) associated with a discovered DOTS agent.</t>
 
           <t>Expiry of a peer DOTS agent's certificate currently in use.</t>
 
@@ -497,7 +497,9 @@
               are listed in the order of preference for use by the DOTS
               agent.<vspace blankLines="1" />Note, IPv4-mapped IPv6 addresses
               (Section 2.5.5.2 of <xref target="RFC4291"></xref>) are allowed
-              to be included in this option.</t>
+              to be included in this option. This is particularly useful in
+              IPv4 service continuity deployments where only DHCPv6 is
+              used.</t>
             </list></t>
 
           <t><?rfc subcompact="no" ?></t>
@@ -1149,8 +1151,8 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
       <t>Thanks to Zhen Cao, Kyle Rose, Nagendra Nainar, and Peter Yee for the
       directorate reviews.</t>
 
-      <t>Thanks to Barry Leiba, Martin Duke, and Roman Danyliw for the IESG
-      review.</t>
+      <t>Thanks to Barry Leiba, Martin Duke, Roman Danyliw, and Eric Vyncke
+      for the IESG review.</t>
     </section>
   </middle>
 
