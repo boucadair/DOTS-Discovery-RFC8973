@@ -499,7 +499,7 @@
               included in this option when there is no DHCPv4 server able to
               advertise the DHCPv4 DOTS options (<xref
               target="dhcpv4"></xref>) and when only IPv4 connectivity is
-              possible to the peer DOTS agent. </t>
+              possible to the peer DOTS agent.</t>
             </list></t>
 
           <t><?rfc subcompact="no" ?></t>
@@ -803,8 +803,7 @@
         </figure></t>
 
       <t>The &lt;Domain&gt; portion specifies the DNS sub-domain where the
-      service instance is registered. It may be "local.", indicating the mDNS
-      local domain, or it may be a conventional domain name such as
+      service instance is registered. It is a conventional domain name such as
       "example.com.".</t>
 
       <t>The &lt;Service&gt; portion of the DOTS service instance name MUST be
@@ -922,7 +921,7 @@ b._dots-signal._udp.example.net. TXT ""
         <t>Note that means such as DNS over TLS (DoT) <xref
         target="RFC7858"></xref> or DNS over HTTPS (DoH) <xref
         target="RFC8484"></xref> can be used to prevent eavesdroppers from
-        accessing DNS messages. </t>
+        accessing DNS messages.</t>
       </section>
     </section>
 
