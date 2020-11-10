@@ -711,6 +711,7 @@
 
  data.example.net.
  IN NAPTR 100 10 "s" DOTS:data.tcp "" _dots-data._tcp.example.net.
+ IN NAPTR 200 10 "a" DOTS:data.tcp "" b.example.net.
 
  _dots-signal._udp.example.net.
  IN SRV   0 0 5000 a.example.net.
@@ -723,6 +724,9 @@
 
  a.example.net.
  IN AAAA  2001:db8::1
+
+ b.example.net.
+ IN AAAA  2001:db8::2
 ]]></artwork>
         </figure><figure>
           <artwork><![CDATA[        +-------+----------+-------------+------+--------+
@@ -731,6 +735,7 @@
         | 1     | UDP      | 2001:db8::1 | 5000 | Signal |
         | 2     | TCP      | 2001:db8::1 | 5001 | Signal |
         | 3     | TCP      | 2001:db8::1 | 5002 | Data   |
+        | 4     | TCP      | 2001:db8::2 | 443  | Data   |
         +-------+----------+-------------+------+--------+
                  Table 1: Resolution Results]]></artwork>
         </figure></t>
@@ -1149,8 +1154,8 @@ TBA2    OPTION_V6_DOTS_ADDRESS   Yes           Yes]]></artwork>
       <t>Thanks to Zhen Cao, Kyle Rose, Nagendra Nainar, and Peter Yee for the
       directorate reviews.</t>
 
-      <t>Thanks to Barry Leiba, Martin Duke, Roman Danyliw, and Eric Vyncke
-      for the IESG review.</t>
+      <t>Thanks to Barry Leiba, Martin Duke, Roman Danyliw, Eric Vyncke, and
+      Magnus Westerlund for the IESG review.</t>
     </section>
   </middle>
 
